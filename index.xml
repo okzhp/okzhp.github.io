@@ -1,30 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>My New Hugo Site</title>
-    <link>http://okzhp.github.io/</link>
-    <description>Recent content on My New Hugo Site</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 28 Dec 2022 18:47:56 +0800</lastBuildDate><atom:link href="http://okzhp.github.io/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>About</title>
-      <link>http://okzhp.github.io/about/</link>
-      <pubDate>Wed, 28 Dec 2022 18:52:42 +0800</pubDate>
-      
-      <guid>http://okzhp.github.io/about/</guid>
-      <description>关于我 男，23，无业游民一枚。</description>
-    </item>
-    
-    <item>
-      <title>First</title>
-      <link>http://okzhp.github.io/post/first/</link>
-      <pubDate>Wed, 28 Dec 2022 18:47:56 +0800</pubDate>
-      
-      <guid>http://okzhp.github.io/post/first/</guid>
-      <description>测试标题 好久没有出门了，一方面外面实在太冷了，另一方面也懒得出去。
-每天的活动范围就是卧室、厨房和卫生间。</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>朱慧鹏的博客</title>
+        <link>http://example.org/</link>
+        <description>This is my cool site</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>1241683615@qq.com (朱慧鹏)</managingEditor>
+            <webMaster>1241683615@qq.com (朱慧鹏)</webMaster>
+            <atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+        </channel>
 </rss>
