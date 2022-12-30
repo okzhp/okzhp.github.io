@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>技术 - 分类 - 我的博客</title>
+        <link>https://okzhp.github.io/categories/%E6%8A%80%E6%9C%AF/</link>
+        <description>技术 - 分类 - 我的博客</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1241683615@qq.com (凯斯宾)</managingEditor>
+            <webMaster>1241683615@qq.com (凯斯宾)</webMaster><lastBuildDate>Fri, 30 Dec 2022 14:37:48 &#43;0800</lastBuildDate><atom:link href="https://okzhp.github.io/categories/%E6%8A%80%E6%9C%AF/" rel="self" type="application/rss+xml" /><item>
+    <title>Second_post</title>
+    <link>https://okzhp.github.io/second_post/</link>
+    <pubDate>Fri, 30 Dec 2022 14:37:48 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://okzhp.github.io/second_post/</guid>
+    <description><![CDATA[fasdf ff 1 2 3 public class Test{ } 姓名 年龄 张三 999 Option Description data path to data files to supply the data that will be passed into templates. engine engine to be used for processing templates. Handlebars is the default. ext extension to be used for dest files. link 🤴 😝🤤😒🫠🙃 $\pm\sqrt{a^2+b^2} $ $c = \pm\sqrt{a^2 + b^2}$ and \(f(x)=\int_{-\infty}^{\infty} \hat{f}(\xi)]]></description>
+</item>
+</channel>
+</rss>
