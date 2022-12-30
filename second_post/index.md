@@ -1,8 +1,6 @@
 # Second_post
 
 
-
-
 fasdf 
 
 - [x] ff
@@ -41,7 +39,7 @@ Here is a list of [TE​X functions supported by KATE​X](https://katex.org/doc
 
 {{< bilibili BV1TJ411C7An 3 >}}
 
-{{< music url="/music/没人在乎你.mp3" name=没人在乎你 artist=oldmanyoung cover="/images/Wavelength.jpg" >}}
+
 {{< music auto="https://music.163.com/#/playlist?id=60198" >}}
 {{< script >}}
 console.log('Hello LoveIt!');
