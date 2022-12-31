@@ -3,7 +3,7 @@
 
 fasdf 
 
-- [x] ff
+- [x] ff发士大夫
 
 ```java
 public class Test{
@@ -35,10 +35,13 @@ Here is a list of [TE​X functions supported by KATE​X](https://katex.org/doc
 
 {{< figure src="/images/a.jpg" title="Lighthouse (figure)" >}}
 
+![](https://image.okzhp.tk/img/20221231193829.png)
+
+![](http://image.okzhp.tk/img/20221231193829.png)
+
 {{< gist spf13 7896402 >}}
 
 {{< bilibili BV1TJ411C7An 3 >}}
-
 
 {{< music auto="https://music.163.com/#/playlist?id=60198" >}}
 {{< script >}}
