@@ -64,28 +64,27 @@
 2. 在static/js文件夹下创建`cal-runtime.js`，粘贴以下内容：
 
 ```javascript
-/*zhp 站点运行时间 */
-function runtime() {
-    window.setTimeout("runtime()", 1000);
-    /* 请修改这里的起始时间 */
-    let startTime = new Date('12/30/2022 15:00:00');
-    let endTime = new Date();
-    let usedTime = endTime - startTime;
-    let days = Math.floor(usedTime / (24 * 3600 * 1000));
-    let leavel = usedTime % (24 * 3600 * 1000);
-    let hours = Math.floor(leavel / (3600 * 1000));
-    let leavel2 = leavel % (3600 * 1000);
-    let minutes = Math.floor(leavel2 / (60 * 1000));
-    let leavel3 = leavel2 % (60 * 1000);
-    let seconds = Math.floor(leavel3 / (1000));
+/* 站点运行时间 */
+function siteTime() {
+    let seconds = 1000;
+    let minutes = 60000;
+    let hours = 3600000;
+    let days = 86400000;
+    let years = 31536000000;
+    let diff = new Date() - new Date('12/31/2022 00:00:00');
+    // let diffYears = Math.floor(diff / years);
+    let diffDays = Math.floor(diff / days);
+    let diffHours = Math.floor((diff%days)/hours);
+    let diffMinutes = Math.floor((diff%hours) / minutes);
+    let diffSeconds = Math.floor((diff%minutes) / seconds);
     let runbox = document.getElementById('run-time');
     runbox.innerHTML = '本站已运行<i class="far fa-clock fa-fw"></i> ' +
-        ((days < 10) ? '0' : '') + days + ' 天 ' +
-        ((hours < 10) ? '0' : '') + hours + ' 时 ' +
-        ((minutes < 10) ? '0' : '') + minutes + ' 分 ' +
-        ((seconds < 10) ? '0' : '') + seconds + ' 秒 ';
+        ((diffDays < 10) ? '0' : '') + diffDays + ' 天 ' +
+        ((diffHours < 10) ? '0' : '') + diffHours + ' 时 ' +
+        ((diffMinutes < 10) ? '0' : '') + diffMinutes + ' 分 ' +
+        ((diffSeconds < 10) ? '0' : '') + diffSeconds + ' 秒 ';
 }
-runtime();
+setInterval(siteTime, 1000);
 ```
 
 3. 将`themes/LoveIt/layouts/partials/footer.html`复制到`layouts/partials/footer.html`
@@ -318,16 +317,12 @@ DNS解析通常要几分钟才能生效，随后在github page页面配置该域
 
 后续再补🤖
 
-
-
 总之，本次博客搭建参考了大量网络内容，包括但不限于以下参考：
 
 - [Github Pages + Hugo 搭建个人博客 - 渣渣的夏天 (zz2summer.github.io)](https://zz2summer.github.io/github-pages-hugo-搭建个人博客/)
 
 - [Hugo系列(3.1) - LoveIt主题美化与博客功能增强 · 第二章 - Yulin Lewis' Blog (lewky.cn)](https://lewky.cn/posts/hugo-3.1.html/)
 
-  
-
-  
+- 
 
   
