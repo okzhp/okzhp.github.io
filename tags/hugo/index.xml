@@ -1,12 +1,10 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Okzhp</title>
-        <link>https://okzhp.github.io/</link>
-        <description>这是我的全新 Hugo 网站</description>
+        <title>Hugo - 标签 - Okzhp</title>
+        <link>https://okzhp.github.io/tags/hugo/</link>
+        <description>Hugo - 标签 - Okzhp</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1241683615@qq.com (Caspian)</managingEditor>
-            <webMaster>1241683615@qq.com (Caspian)</webMaster><lastBuildDate>Tue, 03 Jan 2023 15:53:43 &#43;0800</lastBuildDate>
-            <atom:link href="https://okzhp.github.io/index.xml" rel="self" type="application/rss+xml" />
-        <item>
+            <webMaster>1241683615@qq.com (Caspian)</webMaster><lastBuildDate>Tue, 03 Jan 2023 15:53:43 &#43;0800</lastBuildDate><atom:link href="https://okzhp.github.io/tags/hugo/" rel="self" type="application/rss+xml" /><item>
     <title>Hugo搭建博客（下）</title>
     <link>https://okzhp.github.io/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-2/</link>
     <pubDate>Tue, 03 Jan 2023 15:53:43 &#43;0800</pubDate>

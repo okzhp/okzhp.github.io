@@ -4,29 +4,21 @@
         <link>https://okzhp.github.io/posts/</link>
         <description>所有文章 | Okzhp</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1241683615@qq.com (Caspian)</managingEditor>
-            <webMaster>1241683615@qq.com (Caspian)</webMaster><lastBuildDate>Sat, 31 Dec 2022 16:16:03 &#43;0800</lastBuildDate><atom:link href="https://okzhp.github.io/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>Index</title>
-    <link>https://okzhp.github.io/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-%E4%BB%8E%E9%9B%B6%E5%88%B0%E4%B8%80/</link>
-    <pubDate>Sat, 31 Dec 2022 16:16:03 &#43;0800</pubDate>
+            <webMaster>1241683615@qq.com (Caspian)</webMaster><lastBuildDate>Tue, 03 Jan 2023 15:53:43 &#43;0800</lastBuildDate><atom:link href="https://okzhp.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Hugo搭建博客（下）</title>
+    <link>https://okzhp.github.io/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-2/</link>
+    <pubDate>Tue, 03 Jan 2023 15:53:43 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://okzhp.github.io/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-%E4%BB%8E%E9%9B%B6%E5%88%B0%E4%B8%80/</guid>
-    <description><![CDATA[本文主要记录一下博客搭建的整个流程 1、前提条件 安装git、hugo 2、开始搭建 搭建完毕。🥰😘☺️😚🤗🤩 3、反对斯科拉附近开了]]></description>
+    <guid>https://okzhp.github.io/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-2/</guid>
+    <description><![CDATA[这是Hugo搭建博客的第二期，第一期请参考：Hugo搭建博客（上） - Okzhp 1.Hugo(LoveIt)美化 本站对主题的改造体现在以下几个方面： 鼠]]></description>
 </item>
 <item>
-    <title>Second_post</title>
-    <link>https://okzhp.github.io/second_post/</link>
-    <pubDate>Fri, 30 Dec 2022 14:37:48 &#43;0800</pubDate>
+    <title>Hugo搭建博客（上）</title>
+    <link>https://okzhp.github.io/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-1/</link>
+    <pubDate>Mon, 02 Jan 2023 18:05:44 &#43;0800</pubDate>
     <author>作者</author>
-    <guid>https://okzhp.github.io/second_post/</guid>
-    <description><![CDATA[fasdf ff发士大夫 1 2 3 public class Test{ } 姓名 年龄 张三 999 Option Description data path to data files to supply the data that will be passed into templates. engine engine to be used for processing templates. Handlebars is the default. ext extension to be used for dest files. link 🤴 😝🤤😒🫠🙃 $\pm\sqrt{a^2+b^2} $ $c = \pm\sqrt{a^2]]></description>
-</item>
-<item>
-    <title>First_post</title>
-    <link>https://okzhp.github.io/first_post/</link>
-    <pubDate>Fri, 30 Dec 2022 01:01:29 &#43;0800</pubDate>
-    <author>Caspian</author>
-    <guid>https://okzhp.github.io/first_post/</guid>
-    <description><![CDATA[Note When building the website, you can set a theme by using --theme option. However, we suggest you modify the configuration file (config.toml) and set the theme as the default. 2.4 Create Your First Post Here is the way to create your first post: 1 hugo new posts/first_post.md Feel free to edit the post file by adding some sample content and replacing the title value in the beginning of the]]></description>
+    <guid>https://okzhp.github.io/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-1/</guid>
+    <description><![CDATA[这是Hugo搭建博客的第一期，第二期请参考：Hugo搭建博客（下） - Okzhp 1.前言 ​ 很早之前就想要搭建一个博客，奈何伊始眼界太窄，不知以何种方式]]></description>
 </item>
 </channel>
 </rss>

@@ -1,7 +1,7 @@
 /*zhp 站点运行时间 */
 function runtime() {
-	window.setTimeout("runtime()", 1000);
-	/* 请修改这里的起始时间 */
+    window.setTimeout("runtime()", 1000);
+    /* 请修改这里的起始时间 */
     let startTime = new Date('12/30/2022 15:00:00');
     let endTime = new Date();
     let usedTime = endTime - startTime;
@@ -13,10 +13,12 @@ function runtime() {
     let leavel3 = leavel2 % (60 * 1000);
     let seconds = Math.floor(leavel3 / (1000));
     let runbox = document.getElementById('run-time');
-    runbox.innerHTML = '本站已运行<i class="far fa-clock fa-fw"></i> '
-        + ((days < 10) ? '0' : '') + days + ' 天 '
-        + ((hours < 10) ? '0' : '') + hours + ' 时 '
-        + ((minutes < 10) ? '0' : '') + minutes + ' 分 '
-        + ((seconds < 10) ? '0' : '') + seconds + ' 秒 ';
+    runbox.innerHTML = '本站已运行<i class="far fa-clock fa-fw"></i> ' +
+        ((days < 10) ? '0' : '') + days + ' 天 ' +
+        ((hours < 10) ? '0' : '') + hours + ' 时 ' +
+        ((minutes < 10) ? '0' : '') + minutes + ' 分 ' +
+        ((seconds < 10) ? '0' : '') + seconds + ' 秒 ';
 }
 runtime();
+
+

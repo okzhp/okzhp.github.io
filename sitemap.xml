@@ -2,16 +2,12 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://okzhp.github.io/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-%E4%BB%8E%E9%9B%B6%E5%88%B0%E4%B8%80/</loc><lastmod>2022-12-31T16:16:03&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://okzhp.github.io/</loc><lastmod>2022-12-31T16:16:03&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://okzhp.github.io/posts/</loc><lastmod>2022-12-31T16:16:03&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://okzhp.github.io/about/</loc><lastmod>2022-12-30T19:28:23&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://okzhp.github.io/categories/</loc><lastmod>2022-12-30T14:37:48&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://okzhp.github.io/second_post/</loc><lastmod>2022-12-30T14:37:48&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://okzhp.github.io/tags/</loc><lastmod>2022-12-30T14:37:48&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://okzhp.github.io/tags/%E6%A0%87%E7%AD%BE%E4%BA%8C/</loc><lastmod>2022-12-30T14:37:48&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://okzhp.github.io/tags/%E6%A0%87%E7%AD%BE%E4%B8%89/</loc><lastmod>2022-12-30T14:37:48&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://okzhp.github.io/categories/%E6%8A%80%E6%9C%AF/</loc><lastmod>2022-12-30T14:37:48&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://okzhp.github.io/first_post/</loc><lastmod>2022-12-30T01:01:29&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://okzhp.github.io/tags/%E6%A0%87%E7%AD%BE%E4%B8%80/</loc><lastmod>2022-12-30T01:01:29&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://okzhp.github.io/categories/%E9%9A%8F%E7%AC%94/</loc><lastmod>2022-12-30T01:01:29&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url></urlset>
+            <loc>https://okzhp.github.io/categories/</loc><lastmod>2023-01-03T15:53:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://okzhp.github.io/tags/hugo/</loc><lastmod>2023-01-03T15:53:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://okzhp.github.io/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-2/</loc><lastmod>2023-01-03T15:53:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://okzhp.github.io/</loc><lastmod>2023-01-03T15:53:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://okzhp.github.io/posts/</loc><lastmod>2023-01-03T15:53:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://okzhp.github.io/tags/</loc><lastmod>2023-01-03T15:53:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://okzhp.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc><lastmod>2023-01-03T15:53:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://okzhp.github.io/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-1/</loc><lastmod>2023-01-02T18:05:44&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://okzhp.github.io/about/</loc><lastmod>2022-12-30T19:28:23&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url></urlset>
