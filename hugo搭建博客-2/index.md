@@ -194,17 +194,11 @@ setInterval(siteTime, 1000);
 
 在博客的根目录执行`hugo`命令，此命令将在public文件夹中构建出该博客网站。
 
-```shell
-cd public
-#将public初始化为git仓库，后续将通过git管理内容
-git init
+使用git前先设置git的用户名和邮箱：
 
-git remote add origin https://github.com/okzhp/okzhp.github.io.git
-# 将所有内容添加到git库
-git add .
-git commit -m "第一次提交"
-# 如果push失败，请先执行git pull master然后再push
-git push master
+```shell
+git config --global user.name "Your Name"
+git config --global user.email "email@example.com"
 ```
 
 > git网络不太稳定，很有可能push失败，最好使用翻墙网络。
@@ -216,7 +210,19 @@ git push master
 >
 > 通常clash http端口号为7890
 
+```shell
+cd public
+#将public初始化为git仓库，后续将通过git管理内容
+git init
 
+# 关联远程仓库
+git remote add origin https://github.com/okzhp/okzhp.github.io.git
+# 将所有内容添加到git库
+git add .
+git commit -m "第一次提交"
+#提交到git仓库 首次提交可能需要身份认证，点击在浏览器中认证
+git push -u origin master
+```
 
 push完后在仓库页面，选择部署分支为当前分支master，
 
@@ -224,17 +230,15 @@ push完后在仓库页面，选择部署分支为当前分支master，
 
 github将自动部署该博客，通过`用户名.github.io`即可访问。
 
-
-
 后续更新文章通过命令:
 
 ```shell
 #查看仓库状态
 git status
 git add .
-git commit -m "第一次提交"
-# 如果push失败，请先执行git pull master然后再push
-git push master
+git commit -m "填写提交备注"
+# 如果push失败，可能是网络不行或者远程仓库和本地仓库内容有差异，请先执行git pull master然后再push
+git push origin master
 ```
 
 
@@ -251,14 +255,19 @@ git push master
 
 在域名服务商的管理台正确配置DNS解析。
 
-首先在cmd ping一下博客地址，记下该ip地址：
+github.io的ip地址为： 
 
-![](https://image.okzhp.tk/img/20230103174222.png)
+1. 185.199.108.153 
+2.  185.199.109.153
+3.  185.199.110.153
+4.  185.199.111.153
 
 在DNS解析处添加以下两条配置：
 
-1. 如果是ipv4则是：A类型  okzhp.tk  ip地址，如果是ipv6则是AAAA类型。
+1. A类型  你的域名(例如okzhp.tk)   上面四个ip之一(例如185.199.108.153)
 2. CNAME  www   仓库地址(例如okzhp.github.io)
+
+上边的配置将okzhp.tk解析到185.199.108.153，将www.okzhp.tk解析到okzhp.github.io
 
 DNS解析通常要几分钟才能生效，随后在github page页面配置该域名即可：
 

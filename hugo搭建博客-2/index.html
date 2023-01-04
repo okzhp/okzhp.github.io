@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/okzhp.github.io\/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-2\/"
-        },"genre": "posts","keywords": "Hugo","wordcount":  3918 ,
+        },"genre": "posts","keywords": "Hugo","wordcount":  4057 ,
         "url": "https:\/\/okzhp.github.io\/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-2\/","datePublished": "2023-01-03T15:53:43+08:00","dateModified": "2023-01-03T15:53:43+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -101,8 +101,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Hugo搭建博客（下）</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Caspian</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>博客搭建</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-03">2023-01-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3918 字&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 8 分钟&nbsp;<span id="/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-2/" class="leancloud_visitors" data-flag-title="Hugo搭建博客（下）">
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-01-03">2023-01-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 4057 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 9 分钟&nbsp;<span id="/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-2/" class="leancloud_visitors" data-flag-title="Hugo搭建博客（下）">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;
 
@@ -429,6 +429,24 @@
 <p>当调整完布局和内容后，我们就可以开始部署（托管）到github pages了。</p>
 <p>首先需要在github建立一个public仓库，仓库名为 <code>用户名.github.io</code>。</p>
 <p>在博客的根目录执行<code>hugo</code>命令，此命令将在public文件夹中构建出该博客网站。</p>
+<p>使用git前先设置git的用户名和邮箱：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git config --global user.name <span class="s2">&#34;Your Name&#34;</span>
+</span></span><span class="line"><span class="cl">git config --global user.email <span class="s2">&#34;email@example.com&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>git网络不太稳定，很有可能push失败，最好使用翻墙网络。</p>
+<p>在cmd中设置http和https代理方法：</p>
+<p>set http_proxy=http://127.0.0.1:端口号
+set https_proxy=http://127.0.0.1:端口号</p>
+<p>通常clash http端口号为7890</p>
+</blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -441,28 +459,23 @@
 </span><span class="lnt"> 8
 </span><span class="lnt"> 9
 </span><span class="lnt">10
+</span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> public
 </span></span><span class="line"><span class="cl"><span class="c1">#将public初始化为git仓库，后续将通过git管理内容</span>
 </span></span><span class="line"><span class="cl">git init
 </span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 关联远程仓库</span>
 </span></span><span class="line"><span class="cl">git remote add origin https://github.com/okzhp/okzhp.github.io.git
 </span></span><span class="line"><span class="cl"><span class="c1"># 将所有内容添加到git库</span>
 </span></span><span class="line"><span class="cl">git add .
 </span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;第一次提交&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 如果push失败，请先执行git pull master然后再push</span>
-</span></span><span class="line"><span class="cl">git push master
+</span></span><span class="line"><span class="cl"><span class="c1">#提交到git仓库 首次提交可能需要身份认证，点击在浏览器中认证</span>
+</span></span><span class="line"><span class="cl">git push -u origin master
 </span></span></code></pre></td></tr></table>
 </div>
-</div><blockquote>
-<p>git网络不太稳定，很有可能push失败，最好使用翻墙网络。</p>
-<p>在cmd中设置http和https代理方法：</p>
-<p>set http_proxy=http://127.0.0.1:端口号
-set https_proxy=http://127.0.0.1:端口号</p>
-<p>通常clash http端口号为7890</p>
-</blockquote>
-<p>push完后在仓库页面，选择部署分支为当前分支master，</p>
+</div><p>push完后在仓库页面，选择部署分支为当前分支master，</p>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -486,9 +499,9 @@ set https_proxy=http://127.0.0.1:端口号</p>
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">#查看仓库状态</span>
 </span></span><span class="line"><span class="cl">git status
 </span></span><span class="line"><span class="cl">git add .
-</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;第一次提交&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 如果push失败，请先执行git pull master然后再push</span>
-</span></span><span class="line"><span class="cl">git push master
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;填写提交备注&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果push失败，可能是网络不行或者远程仓库和本地仓库内容有差异，请先执行git pull master然后再push</span>
+</span></span><span class="line"><span class="cl">git push origin master
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="2域名申请绑定">2.域名申请/绑定</h3>
@@ -499,20 +512,19 @@ set https_proxy=http://127.0.0.1:端口号</p>
 </blockquote>
 <p>我申请免费域名的方法暂时已经失效了，域名的问题请自行解决，网络上应该有许多免费域名的获取方法。</p>
 <p>在域名服务商的管理台正确配置DNS解析。</p>
-<p>首先在cmd ping一下博客地址，记下该ip地址：</p>
-<p><img
-        class="lazyload"
-        src="/svg/loading.min.svg"
-        data-src="https://image.okzhp.tk/img/20230103174222.png"
-        data-srcset="https://image.okzhp.tk/img/20230103174222.png, https://image.okzhp.tk/img/20230103174222.png 1.5x, https://image.okzhp.tk/img/20230103174222.png 2x"
-        data-sizes="auto"
-        alt="https://image.okzhp.tk/img/20230103174222.png"
-        title="https://image.okzhp.tk/img/20230103174222.png" /></p>
+<p>github.io的ip地址为：</p>
+<ol>
+<li>185.199.108.153</li>
+<li>185.199.109.153</li>
+<li>185.199.110.153</li>
+<li>185.199.111.153</li>
+</ol>
 <p>在DNS解析处添加以下两条配置：</p>
 <ol>
-<li>如果是ipv4则是：A类型  okzhp.tk  ip地址，如果是ipv6则是AAAA类型。</li>
+<li>A类型  你的域名(例如okzhp.tk)   上面四个ip之一(例如185.199.108.153)</li>
 <li>CNAME  www   仓库地址(例如okzhp.github.io)</li>
 </ol>
+<p>上边的配置将okzhp.tk解析到185.199.108.153，将www.okzhp.tk解析到okzhp.github.io</p>
 <p>DNS解析通常要几分钟才能生效，随后在github page页面配置该域名即可：</p>
 <p><img
         class="lazyload"
