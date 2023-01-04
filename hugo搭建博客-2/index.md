@@ -198,9 +198,9 @@ setInterval(siteTime, 1000);
 cd public
 #将public初始化为git仓库，后续将通过git管理内容
 git init
-# 将所有内容添加到git库
-git remote add master https://github.com/okzhp/okzhp.github.io.git
 
+git remote add origin https://github.com/okzhp/okzhp.github.io.git
+# 将所有内容添加到git库
 git add .
 git commit -m "第一次提交"
 # 如果push失败，请先执行git pull master然后再push
