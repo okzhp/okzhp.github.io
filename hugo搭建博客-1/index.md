@@ -88,6 +88,8 @@ Hugo有两个版本，这是[官网安装Hugo](https://gohugo.io/installation/)�
 
 ## 4.Hugo快速上手
 
+> 注意：Hugo使用md文件，常用的md文件编辑器是typora，typora目前版本都是收费的，分享一个免费的版本[点我下载](https://pan.baidu.com/s/147YDiyVgu_CmIIgrx-CWQQ?pwd=2mfd)，该版本(0.9.96)应该是支持后文提到图床配置的最后一个免费版本。
+
 快速上手参考官网quick start。
 
 至此，如果在命令行中执行hugo和git如果没有报错，即可开始下一步了。
@@ -109,7 +111,7 @@ theme = 'LoveIt'
 buildDrafts = true
 前者指定了主题，后者指定了将草稿也进行构建（新建的文章默认是草稿）。
 
-#创建第一篇文章first_post
+#创建第一篇文章first_post,该文章在content/posts文件夹下，这是默认的文章路径
 hugo new posts/first_post.md
 #在编辑好文章后 执行以下命令启动网站。
 hugo serve
@@ -151,7 +153,7 @@ theme = 'LoveIt'
 buildDrafts = true
 ```
 
-下面罗列一些基本的配置，了解基本的配置有助于理解配置的原理。
+下面罗列一些基本的配置，了解基本的配置有助于理解配置的原理。尝试将以下配置追加在配置文件中。
 
 > 尝试替换配置中的一些[ICON]([Find the Perfect Icon for Your Project in Font Awesome 5 | Font Awesome](https://fontawesome.com/v5/search))
 
@@ -467,7 +469,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       #  主页显示的网站标题 (支持 HTML 格式)
       title = "学无止境"
       # 主页显示的网站副标题 (允许 HTML 格式)
-      subtitle = "风景"
+      subtitle = "一个人在他停止学习的时候就已经死了"
       # 是否为副标题显示打字机动画
       typeit = true
       # 是否显示社交账号
@@ -910,17 +912,40 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
 ```
 
-使用该配置文件后，应该是这个样子：
+使用该配置文件后，应该是这个样子：（尝试点击各个菜单）
 
 ![](https://image.okzhp.tk/img/20230102225136.png)
 
 可以看到，目前还没有头像，在static文件夹下创建images文件夹，并找一张合适的图片命名为avatar.png放在里面，即可正确显示头像。
 
+点击about将出现404，执行命令`hugo new about.md`，将在content文件夹下创建about.md，编辑其内容即可正确显示。
+
 此时，博客已经初见雏形了。
 
-那么博客是如何对文章通过标签和分类进行归类呢？答案在于文章的元数据中，打开刚才新建的文章first_post.md，最上边的一些数据就是元数据，在这些数据中我们可以定义文章的标签和分类。下边是一个参考，可以把该数据放在文章的头部并尝试添加标签和分类。
+那么博客是如何对文章通过标签和分类进行归类呢？答案在于文章的元数据中，打开刚才新建的文章first_post.md，最上边的一些数据就是元数据，在这些数据中我们可以定义文章的标签和分类。
+
+打开刚才新建的first_post.md，最上边有一些默认的数据，像这样:
+
+```
+title: "First_post"
+date: 2023-01-04T16:26:35+08:00
+draft: true
+```
+
+在其后追加以下两行，分别代表分类和标签：
 
 ```\
+categories: ["Hugo","分类2"]
+tags: ["tag1","tag2"]
+```
+
+使用`ctrl`+`c`停止hugo服务，并重新启动，将可以看到文章有了标签和分类，且菜单栏中的标签和分类也有了内容。博客会自动根据分类和标签对文章进行归类。
+
+至此一些简略的配置已经叙述完毕。完整的配置文件中有许多其他配置，例如作者、搜索框、副标题、评论系统等等，请自行探索。
+
+> 如果不想每次都要手动在头部添加以上信息，可以再根目录的archetypes文件夹下创建一个default.md，并将以下模板粘贴进去，这样每次执行hugo new posts/xxx.md就会自动在头部添加模板信息。
+
+```
 author: ""
 authorLink: ""
 description: ""
@@ -933,8 +958,6 @@ categories: [""]
 tags: [""]
 ```
 
-博客会自动根据分类和标签对文章进行归类，至此一些简略的配置已经叙述完毕。完整的配置文件中有许多其他配置，例如作者、搜索框、副标题、评论系统等等。
-
-> 如果不想每次都要手动在头部添加以上信息，可以再根目录的archetypes文件夹下创建一个default.md，并将内容粘贴进去，这样每次执行hugo new posts/xxx.md就会自动在头部添加以上信息。
 
 
+至此，就完成了博客初步的搭建，如果有什么疑问欢迎留言交流😉
