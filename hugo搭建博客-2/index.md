@@ -217,10 +217,10 @@ git init
 
 # 关联远程仓库
 git remote add origin https://github.com/okzhp/okzhp.github.io.git
-# 将所有内容添加到git库
+# 将所有内容添加到git本地仓库
 git add .
 git commit -m "第一次提交"
-#提交到git仓库 首次提交可能需要身份认证，点击在浏览器中认证
+#提交到git远程仓库 首次提交可能需要身份认证，点击在浏览器中认证
 git push -u origin master
 ```
 
@@ -324,7 +324,9 @@ DNS解析通常要几分钟才能生效，随后在github page页面配置该域
 - 尚未完成部署脚本一键部署
 - 评论邮箱提醒功能缺失（由于leanCloud自动唤醒被禁止了）
 
-后续再补🤖
+至此，博客已经搭建完毕🤖
+
+如果有问题欢迎留言讨论🤖
 
 总之，本次博客搭建参考了大量网络内容，包括但不限于以下参考：
 
@@ -332,6 +334,5 @@ DNS解析通常要几分钟才能生效，随后在github page页面配置该域
 
 - [Hugo系列(3.1) - LoveIt主题美化与博客功能增强 · 第二章 - Yulin Lewis' Blog (lewky.cn)](https://lewky.cn/posts/hugo-3.1.html/)
 
-- 
-
   
+
