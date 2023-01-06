@@ -1,7 +1,7 @@
 # 我的2022
 
 
-{{< music auto="https://music.163.com/#/song?id=423015580" volume=0.5 >}}
+
 
 ## 📖前言
 
