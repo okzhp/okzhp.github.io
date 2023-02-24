@@ -2,16 +2,17 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>https://okzhp.github.io/categories/</loc><lastmod>2023-01-03T15:53:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://okzhp.github.io/tags/hugo/</loc><lastmod>2023-01-03T15:53:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://okzhp.github.io/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-2/</loc><lastmod>2023-01-03T15:53:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://okzhp.github.io/tags/loveit/</loc><lastmod>2023-01-03T15:53:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://okzhp.github.io/</loc><lastmod>2023-01-03T15:53:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://okzhp.github.io/posts/</loc><lastmod>2023-01-03T15:53:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://okzhp.github.io/tags/</loc><lastmod>2023-01-03T15:53:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://okzhp.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc><lastmod>2023-01-03T15:53:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://okzhp.github.io/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-1/</loc><lastmod>2023-01-02T18:05:44&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://okzhp.github.io/about/</loc><lastmod>2023-01-04T17:09:02&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://okzhp.github.io/categories/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/</loc><lastmod>2022-12-31T14:35:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://okzhp.github.io/tags/%E9%9A%8F%E7%AC%94/</loc><lastmod>2022-12-31T14:35:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>https://okzhp.github.io/%E6%88%91%E7%9A%842022/</loc><lastmod>2022-12-31T14:35:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url></urlset>
+            <loc>https://okzhp.github.io/</loc><lastmod>2023-02-24T15:03:07&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://okzhp.github.io/posts/</loc><lastmod>2023-02-24T15:03:07&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://okzhp.github.io/java%E6%A0%B8%E5%BF%83%E6%A6%82%E8%A6%81/</loc><lastmod>2023-02-24T15:03:07&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>https://okzhp.github.io/categories/</loc><lastmod>2023-01-03T15:53:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://okzhp.github.io/tags/hugo/</loc><lastmod>2023-01-03T15:53:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://okzhp.github.io/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-2/</loc><lastmod>2023-01-03T15:53:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://okzhp.github.io/tags/loveit/</loc><lastmod>2023-01-03T15:53:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://okzhp.github.io/tags/</loc><lastmod>2023-01-03T15:53:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://okzhp.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc><lastmod>2023-01-03T15:53:43&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://okzhp.github.io/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-1/</loc><lastmod>2023-01-02T18:05:44&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://okzhp.github.io/about/</loc><lastmod>2023-01-04T17:09:02&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://okzhp.github.io/categories/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/</loc><lastmod>2022-12-31T14:35:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://okzhp.github.io/tags/%E9%9A%8F%E7%AC%94/</loc><lastmod>2022-12-31T14:35:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>https://okzhp.github.io/%E6%88%91%E7%9A%842022/</loc><lastmod>2022-12-31T14:35:53&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url></urlset>
