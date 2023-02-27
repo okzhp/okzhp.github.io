@@ -4,7 +4,15 @@
         <link>https://okzhp.github.io/tags/%E9%9D%A2%E8%AF%95/</link>
         <description>面试 - 标签 - Okzhp</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1241683615@qq.com (Caspian)</managingEditor>
-            <webMaster>1241683615@qq.com (Caspian)</webMaster><lastBuildDate>Fri, 24 Feb 2023 15:03:07 &#43;0800</lastBuildDate><atom:link href="https://okzhp.github.io/tags/%E9%9D%A2%E8%AF%95/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>1241683615@qq.com (Caspian)</webMaster><lastBuildDate>Mon, 27 Feb 2023 17:05:44 &#43;0800</lastBuildDate><atom:link href="https://okzhp.github.io/tags/%E9%9D%A2%E8%AF%95/" rel="self" type="application/rss+xml" /><item>
+    <title>MySQL核心概要</title>
+    <link>https://okzhp.github.io/mysql%E6%A0%B8%E5%BF%83%E6%A6%82%E8%A6%81/</link>
+    <pubDate>Mon, 27 Feb 2023 17:05:44 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://okzhp.github.io/mysql%E6%A0%B8%E5%BF%83%E6%A6%82%E8%A6%81/</guid>
+    <description><![CDATA[1.关系型数据库 1.1E-R图 Entity-Relationship图，实体关系图。在设计数据库时通常要画出E-R图来表明实体之间的关系，实]]></description>
+</item>
+<item>
     <title>Java核心概要</title>
     <link>https://okzhp.github.io/java%E6%A0%B8%E5%BF%83%E6%A6%82%E8%A6%81/</link>
     <pubDate>Fri, 24 Feb 2023 15:03:07 &#43;0800</pubDate>
