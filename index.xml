@@ -4,9 +4,17 @@
         <link>https://okzhp.github.io/</link>
         <description>这是我的全新 Hugo 网站</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1241683615@qq.com (Caspian)</managingEditor>
-            <webMaster>1241683615@qq.com (Caspian)</webMaster><lastBuildDate>Sat, 25 Feb 2023 01:06:13 &#43;0800</lastBuildDate>
+            <webMaster>1241683615@qq.com (Caspian)</webMaster><lastBuildDate>Mon, 27 Feb 2023 17:05:44 &#43;0800</lastBuildDate>
             <atom:link href="https://okzhp.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>MySQL核心概要</title>
+    <link>https://okzhp.github.io/mysql%E6%A0%B8%E5%BF%83%E6%A6%82%E8%A6%81/</link>
+    <pubDate>Mon, 27 Feb 2023 17:05:44 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://okzhp.github.io/mysql%E6%A0%B8%E5%BF%83%E6%A6%82%E8%A6%81/</guid>
+    <description><![CDATA[1.关系型数据库 1.1E-R图 Entity-Relationship图，实体关系图。在设计数据库时通常要画出E-R图来表明实体之间的关系，实]]></description>
+</item>
+<item>
     <title>Git快记</title>
     <link>https://okzhp.github.io/git%E5%BF%AB%E8%AE%B0/</link>
     <pubDate>Sat, 25 Feb 2023 01:06:13 &#43;0800</pubDate>

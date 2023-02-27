@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>MySQL核心概要 - Okzhp</title><meta name="Description" content="这是我的全新 Hugo 网站"><meta property="og:title" content="MySQL核心概要" />
+<meta property="og:description" content="1.关系型数据库 1.1E-R图 Entity-Relationship图，实体关系图。在设计数据库时通常要画出E-R图来表明实体之间的关系，实" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://okzhp.github.io/mysql%E6%A0%B8%E5%BF%83%E6%A6%82%E8%A6%81/" /><meta property="og:image" content="https://okzhp.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-02-27T17:05:44+08:00" />
+<meta property="article:modified_time" content="2023-02-27T17:05:44+08:00" /><meta property="og:site_name" content="我的网站" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://okzhp.github.io/logo.png"/>
+
+<meta name="twitter:title" content="MySQL核心概要"/>
+<meta name="twitter:description" content="1.关系型数据库 1.1E-R图 Entity-Relationship图，实体关系图。在设计数据库时通常要画出E-R图来表明实体之间的关系，实"/>
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://okzhp.github.io/mysql%E6%A0%B8%E5%BF%83%E6%A6%82%E8%A6%81/" /><link rel="prev" href="https://okzhp.github.io/git%E5%BF%AB%E8%AE%B0/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "MySQL核心概要",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/okzhp.github.io\/mysql%E6%A0%B8%E5%BF%83%E6%A6%82%E8%A6%81\/"
+        },"genre": "posts","keywords": "","wordcount":  3843 ,
+        "url": "https:\/\/okzhp.github.io\/mysql%E6%A0%B8%E5%BF%83%E6%A6%82%E8%A6%81\/","datePublished": "2023-02-27T17:05:44+08:00","dateModified": "2023-02-27T17:05:44+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Caspian"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Okzhp"><span class="header-title-pre"><i class="fab fa-joomla"></i></span>Okzhp</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about"> 关于 </a><a class="menu-item" href="https://github.com/okzhp" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Okzhp"><span class="header-title-pre"><i class="fab fa-joomla"></i></span>Okzhp</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about" title="">关于</a><a class="menu-item" href="https://github.com/okzhp" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">MySQL核心概要</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Caspian</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-27">2023-02-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3843 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 8 分钟&nbsp;<span id="/mysql%E6%A0%B8%E5%BF%83%E6%A6%82%E8%A6%81/" class="leancloud_visitors" data-flag-title="MySQL核心概要">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;
+
+
+            </div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading"></a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#11e-r图">1.1E-R图</a></li>
+    <li><a href="#12数据库范式">1.2数据库范式</a></li>
+    <li><a href="#13主键和外键">1.3主键和外键</a></li>
+    <li><a href="#14为什么不推荐使用外键">1.4为什么不推荐使用外键</a></li>
+    <li><a href="#15dropdeletetruncate">1.5Drop、Delete、Truncate</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#21mysql架构">2.1MySQL架构</a></li>
+    <li><a href="#22mysql存储引擎">2.2MySQL存储引擎</a></li>
+    <li><a href="#23索引">2.3索引</a></li>
+    <li><a href="#24事务">2.4事务</a></li>
+    <li><a href="#25锁">2.5锁</a></li>
+    <li><a href="#26日志">2.6日志</a></li>
+    <li><a href="#27性能优化">2.7性能优化</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="heading"></h2>
+<h1 id="1关系型数据库">1.关系型数据库</h1>
+<h2 id="11e-r图">1.1E-R图</h2>
+<p>Entity-Relationship图，实体关系图。在设计数据库时通常要画出E-R图来表明实体之间的关系，实体之间存在<code>一对一</code>、<code>一对多</code>、<code>多对多</code>的关系。</p>
+<h2 id="12数据库范式">1.2数据库范式</h2>
+<ol>
+<li>第一范式：属性不可再分</li>
+<li>第二范式：在第一范式基础上，消除了非主属性对码的部分传递依赖。</li>
+<li>第三范式：在第二范式基础上，消除了非主属性对码的传递函数依赖。</li>
+</ol>
+<h2 id="13主键和外键">1.3主键和外键</h2>
+<p>主键：一组数据的唯一标识，主键不能为null，不允许重复。</p>
+<p>外键：用于和别的表建立联系，外键是另外一张表的主键，外键可以为null，可以重复，可以有多个外键。</p>
+<h2 id="14为什么不推荐使用外键">1.4为什么不推荐使用外键</h2>
+<p>外键影响数据插入速度，不适合分布式高并发。分库分表情况下无法使用外键。</p>
+<blockquote>
+<p>阿里巴巴开发手册明确规定，不允许使用外键。</p>
+</blockquote>
+<h2 id="15dropdeletetruncate">1.5Drop、Delete、Truncate</h2>
+<p>Drop是直接删除表（包括数据），且无法回滚，速度最快。</p>
+<p>Truncate是清空数据，自增id恢复为1，且无法回滚，速度次之。</p>
+<p>delete是删除数据，删除所有数据不影响自增id，可以回滚，速度最慢，且会进行日志记录。</p>
+<blockquote>
+<p>前两种属于DDL语言，后者属于DML语言。DDL语言是立即执行，DML语言需要提交后才能生效，因此DDL不能回滚，DML可以回滚。</p>
+</blockquote>
+<h1 id="2mysql">2.MySQL</h1>
+<h2 id="21mysql架构">2.1MySQL架构</h2>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://image.okzhp.tk/img/20230227183941.png"
+        data-srcset="https://image.okzhp.tk/img/20230227183941.png, https://image.okzhp.tk/img/20230227183941.png 1.5x, https://image.okzhp.tk/img/20230227183941.png 2x"
+        data-sizes="auto"
+        alt="https://image.okzhp.tk/img/20230227183941.png"
+        title="https://image.okzhp.tk/img/20230227183941.png" /></p>
+<h2 id="22mysql存储引擎">2.2MySQL存储引擎</h2>
+<p>5.5.5之前默认是MyISAM ，之后默认是InnoDB。</p>
+<blockquote>
+<p>通过命令<code>show engines</code>查看MySQL支持的存储引擎。</p>
+<p>通过命令 <code>select version()</code>查看MySQL版本。</p>
+<p>通过命令<code>show variables like '%storage_engine%'</code>查看默认存储引擎。</p>
+</blockquote>
+<p>两者区别？</p>
+<ol>
+<li>前者只支持表级锁，后者新增支持行级锁，并发度更高。</li>
+<li>前者不支持外键，后者支持。</li>
+<li>前者不支持事务，后者支持，实现了四个隔离级别。</li>
+<li>前者不支持数据库崩溃后的安全恢复，后者支持。</li>
+<li>前者不支持MVCC，后者支持。（MVVC可以看作是行级锁的一个升级，可以有效减少加锁操作，提高性能）</li>
+<li>索引实现不同。两者都是使用B+树作为索引结构，但实现方式有所不同。前者索引文件和数据文件是分离的，后者数据文件本身就是索引文件。</li>
+<li>后者性能更高。</li>
+</ol>
+<h2 id="23索引">2.3索引</h2>
+<p>索引的作用相当于目录，通过索引我们可以快速找到对应的数据。</p>
+<p><strong>索引的优缺点？</strong></p>
+<p>优点：查询速度快，通过唯一索引可以保证数据的唯一性。</p>
+<p>缺点：创建和维护索引耗费时间和空间。</p>
+<p><strong>索引的底层数据结构？</strong></p>
+<ol>
+<li>hash表：缺点：无法范围查询无法顺序查询，因此一般不使用hash表作为底层数据结构。</li>
+<li>B树，B+树：一般使用B+树作为底层数据结构。B树可以看作N叉树。</li>
+</ol>
+<p>索引存储（索引树）示意图如下，Id为主键，K为普通索引。可以看出，索引的叶子节点存储的是主键值。主键也被称为聚簇索引，非主键索引也被成为辅助索引（二级索引）。通过普通索引查到主键后，根据主键去ID索引树再次查询，这个过程称为回表。</p>
+<blockquote>
+<p>例如执行select * from T where k between 3 and 5，需要根据主键回表查询，但如果语句改成</p>
+<p>select ID from T where k between 3 and 5，就用到了覆盖索引，索引树k直接包含了要查询的ID，就无需再次回表查询，称为覆盖索引。</p>
+</blockquote>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://image.okzhp.tk/img/20230227223931.png"
+        data-srcset="https://image.okzhp.tk/img/20230227223931.png, https://image.okzhp.tk/img/20230227223931.png 1.5x, https://image.okzhp.tk/img/20230227223931.png 2x"
+        data-sizes="auto"
+        alt="https://image.okzhp.tk/img/20230227223931.png"
+        title="https://image.okzhp.tk/img/20230227223931.png" /></p>
+<p><strong>索引的类型？</strong></p>
+<ol>
+<li>主键索引</li>
+<li>唯一索引：<strong>唯一索引的属性列不能出现重复的数据，但是允许数据为 NULL，一张表允许创建多个唯一索引。</strong> 建立唯一索引的目的大部分时候都是为了该属性列的数据的唯一性，而不是为了查询效率。</li>
+<li>普通索引：普通的索引，可以为null。</li>
+<li>联合索引：多个列组成一个索引。</li>
+<li>覆盖索引：<strong>覆盖索引即需要查询的字段正好是索引的字段，那么直接根据该索引，就可以查到数据了，而无需回表查询。</strong></li>
+<li>全文索引：对文本内容进行分词，进行搜索。char、varchar、text上可以建立全文索引，一般不会使用。而是使用搜索引擎ElasticSearch 代替。</li>
+</ol>
+<p><strong>最左前缀匹配原则?</strong></p>
+<p>如果sql语句中用到了联合索引的最左边的索引，那么这条sql就可以使用这个联合索引去查询。</p>
+<p><strong>建立索引应该如何考虑？</strong></p>
+<ol>
+<li>频繁查询的字段</li>
+<li>作为where条件的字段</li>
+<li>经常需要排序的字段</li>
+<li>经常用于连接的字段</li>
+<li>尽量不为null的字段</li>
+</ol>
+<blockquote>
+<p>频繁更新的字段应该慎重建立索引；</p>
+<p>索引并不是越多越多（索引维护成本较高），建议单张表不超过5个。</p>
+<p>考虑使用联合索引而不是单列索引。</p>
+</blockquote>
+<p><strong>常见的索引失效的情况？</strong></p>
+<ol>
+<li>使用<code>select *</code>查询</li>
+<li>创建了组合索引，但查询条件为满足最左原则。</li>
+<li>在索引列进行计算、函数、类型转换等操作</li>
+<li>以<code>%</code>开头的<code>Like</code>查询语句，比如<code>%abc</code></li>
+<li>查询条件<code>or</code>前后使用的列没有索引。</li>
+</ol>
+<h2 id="24事务">2.4事务</h2>
+<p>**什么是事务？**简言之，要么都成功要么都失败。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="o">#</span><span class="w"> </span><span class="err">开启一个事务</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">START</span><span class="w"> </span><span class="k">TRANSACTION</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">#</span><span class="w"> </span><span class="err">多条</span><span class="w"> </span><span class="k">SQL</span><span class="w"> </span><span class="err">语句</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">SQL1</span><span class="p">,</span><span class="n">SQL2</span><span class="p">...</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">##</span><span class="w"> </span><span class="err">提交事务</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">COMMIT</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>在一个事务中，如果某条语句执行失败，将进行回滚；如果全部都执行成功，将进行提交。提交以后语句才会生效。</p>
+<p><strong>事务的特性？</strong></p>
+<p><code>ACID</code>: 原子性，一致性，隔离性，持久性。</p>
+<p><strong>并发事务带来的问题？</strong></p>
+<ol>
+<li>脏读：读取到其他事务还未提交的数据。</li>
+<li>不可重复读：一个事务内，前后读取的数据不一致（原因是该数据被别的事务更新了）。</li>
+<li>幻读：一个事务内，前后读取的数据不一致（原因是别的事务插入了新数据）。</li>
+<li>丢失修改：两个事务分别修改同一个数据，导致先修改的数据被后修改的数据覆盖丢失了。</li>
+</ol>
+<p><strong>事务的隔离级别？MySQL默认隔离级别？</strong></p>
+<p>共有四个隔离级别，由低到高分别是：</p>
+<ol>
+<li>读未提交</li>
+<li>读已提交：可以解决脏读。</li>
+<li>可重复读：可以解决脏读和不可重复读。</li>
+<li>可串行化：可以解决脏读、不可重复读、幻读。</li>
+</ol>
+<p>MySQL默认是可重复读。</p>
+<p><strong>MySQL如何实现事务并发控制？（MySQL如何实现四种隔离级别）</strong></p>
+<p>通过锁和MVVC共同实现的。锁可以看作是悲观控制模式，MVVC可以看作是乐观控制的模式。</p>
+<p>通过读锁和写锁，读读可以并行，读写和写写不可并行。InnoDB默认为行级锁，锁粒度更小，并发度更高。</p>
+<p>MVVC是多版本并发控制方法，对一份数据存储多个版本，每个事务能看到自己应该看到的版本。MVVC具体实现可以参考：<strong><a href="https://javaguide.cn/database/mysql/innodb-implementation-of-mvcc.html" target="_blank" rel="noopener noreffer ">InnoDB存储引擎对MVCC的实现 | JavaGuide(Java面试+学习指南)</a></strong></p>
+<h2 id="25锁">2.5锁</h2>
+<p>**表级锁：**MySQL 中锁定粒度最大的一种锁（全局锁除外），是针对非索引字段加的锁，对当前操作的整张表加锁，实现简单，资源消耗也比较少，加锁快，不会出现死锁。不过，触发锁冲突的概率最高，高并发下效率极低。表级锁和存储引擎无关，MyISAM 和 InnoDB 引擎都支持表级锁。</p>
+<p><strong>行级锁：</strong> MySQL 中锁定粒度最小的一种锁，是 <strong>针对索引字段加的锁</strong> ，只针对当前操作的行记录进行加锁。 行级锁能大大减少数据库操作的冲突。其加锁粒度最小，并发度高，但加锁的开销也最大，加锁慢，会出现死锁。行级锁和存储引擎有关，是在存储引擎层面实现的。</p>
+<blockquote>
+<p>共享锁和排他锁，也称为读锁和写锁。表级锁和行级锁都存在共享锁和排他锁两类。</p>
+<p>其中多个读锁不冲突，但有写锁的话会冲突。</p>
+</blockquote>
+<blockquote>
+<p>行级锁具体有哪些？</p>
+<ul>
+<li><strong>记录锁（Record Lock）</strong> ：也被称为记录锁，属于单个行记录上的锁。</li>
+<li><strong>间隙锁（Gap Lock）</strong> ：锁定一个范围，不包括记录本身。</li>
+<li><strong>临键锁（Next-Key Lock）</strong> ：Record Lock+Gap Lock，锁定一个范围，包含记录本身，主要目的是为了解决幻读问题（MySQL 事务部分提到过）。记录锁只能锁住已经存在的记录，为了避免插入新记录，需要依赖间隙锁。</li>
+</ul>
+<p><strong>在 InnoDB 默认的隔离级别 REPEATABLE-READ 下，行锁默认使用的是 Next-Key Lock。但是，如果操作的索引是唯一索引或主键，InnoDB 会对 Next-Key Lock 进行优化，将其降级为 Record Lock，即仅锁住索引本身，而不是范围</strong>。</p>
+<p>关于Next-Key Lock：<a href="https://segmentfault.com/a/1190000040129107" target="_blank" rel="noopener noreffer ">MySQL next-key lock 加锁范围是什么？ - 程序员小航 - 2021</a></p>
+</blockquote>
+<p><strong>行级锁使用注意事项？</strong></p>
+<p>行锁是针对索引字段加的锁，表锁是针对非索引字段加的锁。当执行upate或delete语句时，如果where条件没有命中唯一索引或者索引失效会导致全表扫描使用表锁。</p>
+<p>有时使用了索引也会走全表扫描，这是因为MySQL优化器的原因。</p>
+<h2 id="26日志">2.6日志</h2>
+<p>mysql日志，主要包括错误日志，查询日志，慢查询日志，事务日志和归档日志。</p>
+<blockquote>
+<p>慢查询日志，记录了查询时间较长的sql。默认是超过10秒。</p>
+<p>事务日志：分为redo log（重做日志）和undo log（回滚日志）。</p>
+<p>归档日志：不管用什么存储引擎，只要发生了表数据更新，都会产生 <code>binlog</code> 日志。<code>binlog</code> 是逻辑日志，记录内容是语句的原始逻辑，类似于“给 ID=2 这一行的 c 字段加 1”，属于<code>MySQL Server</code> 层。</p>
+</blockquote>
+<p><code>redo log</code>:</p>
+<p>redo log让mysql有了崩溃恢复能力。redo log是物理日志，记录内容是“在某个数据页上做了什么修改”，属于 <code>InnoDB</code> 存储引擎。</p>
+<p>比如 <code>MySQL</code> 实例挂了或宕机了，重启时，<code>InnoDB</code>存储引擎会使用<code>redo log</code>恢复数据，保证数据的持久性与完整性。</p>
+<p><code>undo log</code>：</p>
+<p>通过该日志可以执行回滚操作。</p>
+<p><code>binlog</code>:</p>
+<p><code>MySQL</code>数据库的<strong>数据备份、主备、主主、主从</strong>都离不开<code>binlog</code>，需要依靠<code>binlog</code>来同步数据，保证数据一致性。</p>
+<h2 id="27性能优化">2.7性能优化</h2>
+<p><strong>如何分析sql性能？</strong></p>
+<p>使用<code>explain</code>查看sql执行过程，例如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="n">mysql</span><span class="o">&gt;</span><span class="w"> </span><span class="k">EXPLAIN</span><span class="w"> </span><span class="k">SELECT</span><span class="w"> </span><span class="o">`</span><span class="n">score</span><span class="o">`</span><span class="p">,</span><span class="o">`</span><span class="n">name</span><span class="o">`</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="o">`</span><span class="n">cus_order</span><span class="o">`</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="o">`</span><span class="n">score</span><span class="o">`</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+</span><span class="c1">----+-------------+-----------+------------+------+---------------+------+---------+------+--------+----------+----------------+
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">|</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">select_type</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">table</span><span class="w">     </span><span class="o">|</span><span class="w"> </span><span class="n">partitions</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">type</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">possible_keys</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">key</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="n">key_len</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">ref</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="k">rows</span><span class="w">   </span><span class="o">|</span><span class="w"> </span><span class="n">filtered</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Extra</span><span class="w">          </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+</span><span class="c1">----+-------------+-----------+------------+------+---------------+------+---------+------+--------+----------+----------------+
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">|</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">SIMPLE</span><span class="w">      </span><span class="o">|</span><span class="w"> </span><span class="n">cus_order</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w">       </span><span class="o">|</span><span class="w"> </span><span class="k">ALL</span><span class="w">  </span><span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w">          </span><span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w">    </span><span class="o">|</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="mi">997572</span><span class="w"> </span><span class="o">|</span><span class="w">   </span><span class="mi">100</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="k">Using</span><span class="w"> </span><span class="n">filesort</span><span class="w"> </span><span class="o">|</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="o">+</span><span class="c1">----+-------------+-----------+------------+------+---------------+------+---------+------+--------+----------+----------------+
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="mi">1</span><span class="w"> </span><span class="k">row</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">set</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">warning</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">00</span><span class="w"> </span><span class="n">sec</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>如何分析explain结果，具体参考<a href="https://javaguide.cn/database/mysql/mysql-query-execution-plan.html#%e5%a6%82%e4%bd%95%e8%8e%b7%e5%8f%96%e6%89%a7%e8%a1%8c%e8%ae%a1%e5%88%92" target="_blank" rel="noopener noreffer ">MySQL执行计划分析 | JavaGuide(Java面试+学习指南)</a></p>
+<p><strong>MySQL可以存储图片？</strong></p>
+<p>可以存（直接存储图片的二进制数据），但不建议。会严重影响数据库性能。建议使用OSS或者自建文件存储服务（基于FastDFS或MinIO），数据库只存储文件地址信息，文件由文件存储服务负责存储。</p>
+<p>MySQL高性能优化总结：<a href="https://javaguide.cn/database/mysql/mysql-high-performance-optimization-specification-recommendations.html" target="_blank" rel="noopener noreffer ">MySQL高性能优化规范建议总结 | JavaGuide(Java面试+学习指南)</a></p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-02-27</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/mysql%E6%A0%B8%E5%BF%83%E6%A6%82%E8%A6%81/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://okzhp.github.io/mysql%E6%A0%B8%E5%BF%83%E6%A6%82%E8%A6%81/" data-title="MySQL核心概要" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://okzhp.github.io/mysql%E6%A0%B8%E5%BF%83%E6%A6%82%E8%A6%81/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://okzhp.github.io/mysql%E6%A0%B8%E5%BF%83%E6%A6%82%E8%A6%81/" data-title="MySQL核心概要"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://okzhp.github.io/mysql%E6%A0%B8%E5%BF%83%E6%A6%82%E8%A6%81/" data-title="MySQL核心概要"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://okzhp.github.io/mysql%E6%A0%B8%E5%BF%83%E6%A6%82%E8%A6%81/" data-title="MySQL核心概要"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/">Tags</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/git%E5%BF%AB%E8%AE%B0/" class="prev" rel="prev" title="Git快记"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Git快记</a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main>
+<canvas width="1366" height="662" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas><footer class="footer">
+        <div class="footer-container">
+            
+            <div class="footer-line">
+                <span id="run-time"></span>
+            </div>
+            
+            <div class="busuanzi-footer">
+                <span id="busuanzi_container_site_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_site_pv"></span>次
+                </span>&nbsp;|&nbsp;
+                <span id="busuanzi_container_site_uv">
+                    <i class="fas fa-users"></i>
+                    <span id="busuanzi_value_site_uv"></span>人次
+                </span></div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Caspian</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"valine":{"appId":"UEpLcdixynrCLnKUw0Tux5hK-MdYXbMMI","appKey":"krDHzbea1rh6NJEQuNCwg60u","avatar":"retro","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-twitter@14.0.0/img/twitter/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":true,"highlight":true,"lang":"zh-CN","meta":["nick","mail"],"pageSize":10,"placeholder":"说点什么吧...","recordIP":true,"serverURLs":"https://api.okzhp.tk","visitor":true}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/js/cal-runtime.js"></script>
+
+<script type="text/javascript" src="/js/click-boom.js"></script>
+
+<script type="text/javascript" src="/js/input-boom.js"></script>
+<script type="text/javascript">
+POWERMODE.colorful = true; 
+POWERMODE.shake = true; 
+document.body.addEventListener('input', POWERMODE);
+</script>
+
+<script type="text/javascript" src="/js/busuanzi.pure.mini.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/typeit@6.1.1/dist/typeit.min.js"></script>
+
+<script type="text/javascript">
+
+    
+    let url = "https://v1.hitokoto.cn/?c=a&c=b&c=k&c=j&c=i&c=c&encode=text"
+    oneWord();
+    function oneWord() {
+        let req = new XMLHttpRequest();
+        req.open("GET", url);
+        req.responseType = "text"
+        req.send();
+        req.onload = function() {
+            let text = "一个人在他停止学习的时候就已经死了";
+            if (req.status === 200) { 
+                text = req.responseText;
+            }
+            new TypeIt("#id-1", {
+                strings: text,
+            }).go();
+        };
+    }
+
+</script></body>
+</html>
