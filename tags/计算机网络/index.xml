@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>计算机网络 - 标签 - Okzhp</title>
+        <link>https://okzhp.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
+        <description>计算机网络 - 标签 - Okzhp</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1241683615@qq.com (Caspian)</managingEditor>
+            <webMaster>1241683615@qq.com (Caspian)</webMaster><lastBuildDate>Tue, 28 Feb 2023 20:14:57 &#43;0800</lastBuildDate><atom:link href="https://okzhp.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" rel="self" type="application/rss+xml" /><item>
+    <title>网络&amp;操作系统核心要点</title>
+    <link>https://okzhp.github.io/%E7%BD%91%E7%BB%9C%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A0%B8%E5%BF%83%E8%A6%81%E7%82%B9/</link>
+    <pubDate>Tue, 28 Feb 2023 20:14:57 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://okzhp.github.io/%E7%BD%91%E7%BB%9C%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A0%B8%E5%BF%83%E8%A6%81%E7%82%B9/</guid>
+    <description><![CDATA[1.计算机网络 1.1OSI七层模型&amp;TCP/IP四层模型 七层模型： 四层模型： 四层模型是对七层模型的精简，也是计算机网络真正采用的模型]]></description>
+</item>
+</channel>
+</rss>

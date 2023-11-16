@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>网络&amp;操作系统核心要点 - Okzhp</title><meta name="Description" content="这是我的全新 Hugo 网站"><meta property="og:title" content="网络&amp;操作系统核心要点" />
+<meta property="og:description" content="1.计算机网络 1.1OSI七层模型&amp;TCP/IP四层模型 七层模型： 四层模型： 四层模型是对七层模型的精简，也是计算机网络真正采用的模型" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://okzhp.github.io/%E7%BD%91%E7%BB%9C%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A0%B8%E5%BF%83%E8%A6%81%E7%82%B9/" /><meta property="og:image" content="https://okzhp.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-02-28T20:14:57+08:00" />
+<meta property="article:modified_time" content="2023-02-28T20:14:57+08:00" /><meta property="og:site_name" content="我的网站" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://okzhp.github.io/logo.png"/>
+
+<meta name="twitter:title" content="网络&amp;操作系统核心要点"/>
+<meta name="twitter:description" content="1.计算机网络 1.1OSI七层模型&amp;TCP/IP四层模型 七层模型： 四层模型： 四层模型是对七层模型的精简，也是计算机网络真正采用的模型"/>
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://okzhp.github.io/%E7%BD%91%E7%BB%9C%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A0%B8%E5%BF%83%E8%A6%81%E7%82%B9/" /><link rel="prev" href="https://okzhp.github.io/mysql%E6%A0%B8%E5%BF%83%E6%A6%82%E8%A6%81/" /><link rel="next" href="https://okzhp.github.io/springspringboot%E9%9D%A2%E8%AF%95/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "网络\u0026操作系统核心要点",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/okzhp.github.io\/%E7%BD%91%E7%BB%9C%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A0%B8%E5%BF%83%E8%A6%81%E7%82%B9\/"
+        },"genre": "posts","keywords": "面试, 计算机网络, 操作系统","wordcount":  1995 ,
+        "url": "https:\/\/okzhp.github.io\/%E7%BD%91%E7%BB%9C%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A0%B8%E5%BF%83%E8%A6%81%E7%82%B9\/","datePublished": "2023-02-28T20:14:57+08:00","dateModified": "2023-02-28T20:14:57+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Caspian"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Okzhp"><span class="header-title-pre"><i class="fab fa-joomla"></i></span>Okzhp</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about"> 关于 </a><a class="menu-item" href="https://github.com/okzhp" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Okzhp"><span class="header-title-pre"><i class="fab fa-joomla"></i></span>Okzhp</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about" title="">关于</a><a class="menu-item" href="https://github.com/okzhp" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">网络&操作系统核心要点</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Caspian</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>计算机网络</a>&nbsp;<a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>操作系统</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2023-02-28">2023-02-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1995 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 4 分钟&nbsp;<span id="/%E7%BD%91%E7%BB%9C%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A0%B8%E5%BF%83%E8%A6%81%E7%82%B9/" class="leancloud_visitors" data-flag-title="网络&amp;操作系统核心要点">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;
+
+
+            </div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#11osi七层模型tcpip四层模型">1.1OSI七层模型&amp;TCP/IP四层模型</a></li>
+    <li><a href="#12tcp和udp">1.2TCP和UDP</a></li>
+    <li><a href="#13tcp如何保证传输可靠">1.3TCP如何保证传输可靠</a></li>
+    <li><a href="#14tcp三次握手四次挥手非常重要">1.4TCP三次握手/四次挥手（非常重要）</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#21宏观认知">2.1宏观认知</a></li>
+    <li><a href="#22进程和线程">2.2进程和线程</a></li>
+    <li><a href="#23进程间如何通信">2.3进程间如何通信</a></li>
+    <li><a href="#24线程间同步方式">2.4线程间同步方式</a></li>
+    <li><a href="#25进程调度算法">2.5进程调度算法</a></li>
+    <li><a href="#26死锁的必要条件">2.6死锁的必要条件</a></li>
+    <li><a href="#27内存管理">2.7内存管理</a></li>
+    <li><a href="#28其他参考外链">2.8其他/参考外链</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="1计算机网络">1.计算机网络</h1>
+<h2 id="11osi七层模型tcpip四层模型">1.1OSI七层模型&amp;TCP/IP四层模型</h2>
+<p>七层模型：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://image.okzhp.tk/img/20230228202004.png"
+        data-srcset="https://image.okzhp.tk/img/20230228202004.png, https://image.okzhp.tk/img/20230228202004.png 1.5x, https://image.okzhp.tk/img/20230228202004.png 2x"
+        data-sizes="auto"
+        alt="https://image.okzhp.tk/img/20230228202004.png"
+        title="https://image.okzhp.tk/img/20230228202004.png" /></p>
+<p>四层模型：</p>
+<p>四层模型是对七层模型的精简，也是计算机网络真正采用的模型分层。</p>
+<p>包括</p>
+<p>应用层：没啥可说的，就是应用层，最顶层。</p>
+<p>传输层：负责传输应用层的数据包。</p>
+<p>网络层：负责寻址，即发送方到接收方的寻址工作。</p>
+<p>数据链路层：负责数字信号和物理二进制信号的转换。</p>
+<blockquote>
+<p><strong>各层常见协议：</strong></p>
+<p>应用层：Http（超文本传输协议）、Ftp(文件传输协议)、SMTP(邮件传输协议)、DNS（域名解析）、SSH、Telnet</p>
+<p>传输层：TCP（可靠）、UDP（不可靠）</p>
+<p>网络层：IP</p>
+<p>数据链路层：ARP（ip转mac）</p>
+</blockquote>
+<h2 id="12tcp和udp">1.2TCP和UDP</h2>
+<p>tcp是可靠传输，传输前需要先建立连接，传输效率低，传输形式是字节流，首部开销大（20-60字节），点对点通信。</p>
+<p>UDP是不可靠传输，无需建立连接，传输效率高，传输形式是报文，首部开销小（8字节）,支持广播。</p>
+<p><strong>tcp和UDP应用场景？</strong></p>
+<p>tcp用于需要保证数据可靠传输，UDP用于即时通信，如语音、视频、直播等。</p>
+<p>HTTP3.0之前基于TCP，之后基于UDP的QUIC协议。</p>
+<h2 id="13tcp如何保证传输可靠">1.3TCP如何保证传输可靠</h2>
+<ol>
+<li>将数据分割为一个个的数据包</li>
+<li>通过校验和保证数据的正确性</li>
+<li>超时重传机制：接收方收到数据包会回复确认码，没有收到确认码会重新发送数据包</li>
+<li>对多个数据包进行排序及去重</li>
+<li>流量控制：可以协调发送方和接收方的速率。</li>
+<li>拥塞控制：当网络拥堵时，减少数据的发送。</li>
+</ol>
+<h2 id="14tcp三次握手四次挥手非常重要">1.4TCP三次握手/四次挥手（非常重要）</h2>
+<p>三次握手：客户端发送有SYN=1和序列码seq=x，服务端收到后回复SYN=1,ACK=x+1和序列码seq=y，客户端收到后回复ACK=y+1，服务端收到后完成三次握手，建立连接。</p>
+<p>为什么三次握手？</p>
+<p>第一次握手，服务端确认了自身可以接收数据客户端可以发送数据，第二次握手，客户端确认自己和对方收发数据都正常，此时服务端并不知道自己是否成功发送数据以及客户端是否能接收数据，因此，需要客户端进行第三次握手，服务端可以确认双方收发数据都正常，随后建立连接。</p>
+<p>四次挥手：客户端发送FIN标志的序列码seq=x，服务端收到后回复一个ACK=1，序列码seq=x+1，随后服务端再次发送FIN标志的序列码seq=y，客户端收到后回复ACK=1，seq=y+1，服务端收到后关闭连接，客户端等待2MSL后若没有收到回复，也关闭连接。</p>
+<p>为什么四次挥手？</p>
+<p>客户端首先告诉服务端要关闭连接，服务端首先回应收到了这次请求，但此时可能还有些数据没有传输完毕，服务端等待数据传输完毕，向客户端发送关闭连接的请求，客户端收到后回复确认，随后服务端关闭，客户端等待一会若没有数据也进行关闭。</p>
+<h1 id="2操作系统">2.操作系统</h1>
+<h2 id="21宏观认知">2.1宏观认知</h2>
+<p>操作系统是连接软件和硬件的桥梁，本质上也是一种软件，只不过是最底层的软件，我们编写的软件通过操作系统调用各种硬件和资源。</p>
+<p>系统调用？</p>
+<p>操作系统运行分为两个状态，分别是用户态和内核态。用户编写的程序通常以用户态的形式运行，用户态下可以访问用户资源数据，但如果需要访问系统级别的资源，就需要切换到内核态，在内核态下完成对资源的访问或调用。</p>
+<p>运行的程序中，凡是需要用到系统层面的资源时，都需要通过系统调用的方式向操作系统提出请求，通过操作系统来完成资源的调用。系统调用大致可分为下面几类：</p>
+<ol>
+<li>设备管理</li>
+<li>文件管理</li>
+<li>进程控制、通信</li>
+<li>内存管理</li>
+</ol>
+<h2 id="22进程和线程">2.2进程和线程</h2>
+<p>进程的几种状态：</p>
+<ol>
+<li>创建状态</li>
+<li>就绪状态</li>
+<li>运行状态</li>
+<li>阻塞状态</li>
+<li>结束状态</li>
+</ol>
+<h2 id="23进程间如何通信">2.3进程间如何通信</h2>
+<ol>
+<li>管道/匿名管道</li>
+<li>有名管道</li>
+<li>消息队列</li>
+<li>信号</li>
+<li>信号量</li>
+<li>共享内存</li>
+<li>套接字</li>
+</ol>
+<h2 id="24线程间同步方式">2.4线程间同步方式</h2>
+<ol>
+<li><strong>互斥量(Mutex)</strong>：采用互斥对象机制，只有拥有互斥对象的线程才有访问公共资源的权限。因为互斥对象只有一个，所以可以保证公共资源不会被多个线程同时访问。比如 Java 中的 synchronized 关键词和各种 Lock 都是这种机制。</li>
+<li><strong>信号量(Semaphore)</strong> ：它允许同一时刻多个线程访问同一资源，但是需要控制同一时刻访问此资源的最大线程数量。</li>
+<li><strong>事件(Event)</strong> :Wait/Notify：通过通知操作的方式来保持多线程同步，还可以方便的实现多线程优先级的比较操作</li>
+</ol>
+<h2 id="25进程调度算法">2.5进程调度算法</h2>
+<ol>
+<li>先来先服务</li>
+<li>短作业优先</li>
+<li>时间片轮转调度算法</li>
+<li>多级反馈队列调度算法：综合以上几种算法</li>
+<li>优先级调度</li>
+</ol>
+<h2 id="26死锁的必要条件">2.6死锁的必要条件</h2>
+<ol>
+<li>互斥：资源只可以被一个进程持有</li>
+<li>占有并等待：一个进程至少有一个资源并等待别的资源，且该资源被其他进程所持有</li>
+<li>非抢占：资源不能被抢占，只能被主动释放</li>
+<li>循环等待：多个进程循环等待别的进程的资源</li>
+</ol>
+<h2 id="27内存管理">2.7内存管理</h2>
+<p>作用？</p>
+<p>负责内存的分配和回收，以及将逻辑地址转换为物理地址。</p>
+<p>内存管理的几种方式？</p>
+<p>连续分配管理方式：如块式管理。</p>
+<p>非连续分配管理方式：如页式管理，段式管理，段页式管理。</p>
+<h2 id="28其他参考外链">2.8其他/参考外链</h2>
+<p><strong>局部性原理、快表和多级页表、逻辑地址&amp;物理地址、虚拟内存及如何实现、页面置换算法</strong></p>
+<blockquote>
+<p>内容有点多，参考链接：<a href="https://javaguide.cn/cs-basics/operating-system/operating-system-basic-questions-01.html#cpu-%e5%af%bb%e5%9d%80%e4%ba%86%e8%a7%a3%e5%90%97-%e4%b8%ba%e4%bb%80%e4%b9%88%e9%9c%80%e8%a6%81%e8%99%9a%e6%8b%9f%e5%9c%b0%e5%9d%80%e7%a9%ba%e9%97%b4" target="_blank" rel="noopener noreffer ">操作系统常见面试题总结 | JavaGuide(Java面试+学习指南)</a></p>
+</blockquote>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2023-02-28</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/%E7%BD%91%E7%BB%9C%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A0%B8%E5%BF%83%E8%A6%81%E7%82%B9/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://okzhp.github.io/%E7%BD%91%E7%BB%9C%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A0%B8%E5%BF%83%E8%A6%81%E7%82%B9/" data-title="网络&amp;操作系统核心要点" data-hashtags="面试,计算机网络,操作系统"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://okzhp.github.io/%E7%BD%91%E7%BB%9C%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A0%B8%E5%BF%83%E8%A6%81%E7%82%B9/" data-hashtag="面试"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://okzhp.github.io/%E7%BD%91%E7%BB%9C%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A0%B8%E5%BF%83%E8%A6%81%E7%82%B9/" data-title="网络&amp;操作系统核心要点"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://okzhp.github.io/%E7%BD%91%E7%BB%9C%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A0%B8%E5%BF%83%E8%A6%81%E7%82%B9/" data-title="网络&amp;操作系统核心要点"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://okzhp.github.io/%E7%BD%91%E7%BB%9C%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A0%B8%E5%BF%83%E8%A6%81%E7%82%B9/" data-title="网络&amp;操作系统核心要点"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/%E9%9D%A2%E8%AF%95/">面试</a>,&nbsp;<a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a>,&nbsp;<a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/mysql%E6%A0%B8%E5%BF%83%E6%A6%82%E8%A6%81/" class="prev" rel="prev" title="MySQL核心概要"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>MySQL核心概要</a>
+            <a href="/springspringboot%E9%9D%A2%E8%AF%95/" class="next" rel="next" title="Spring&amp;SpringBoot面试">Spring&SpringBoot面试<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main>
+<canvas width="1366" height="662" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas><footer class="footer">
+        <div class="footer-container">
+            
+            <div class="footer-line">
+                <span id="run-time"></span>
+            </div>
+            
+            <div class="busuanzi-footer">
+                <span id="busuanzi_container_site_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_site_pv"></span>次
+                </span>&nbsp;|&nbsp;
+                <span id="busuanzi_container_site_uv">
+                    <i class="fas fa-users"></i>
+                    <span id="busuanzi_value_site_uv"></span>人次
+                </span></div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Caspian</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"valine":{"appId":"UEpLcdixynrCLnKUw0Tux5hK-MdYXbMMI","appKey":"krDHzbea1rh6NJEQuNCwg60u","avatar":"retro","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-twitter@14.0.0/img/twitter/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":true,"highlight":true,"lang":"zh-CN","meta":["nick","mail"],"pageSize":10,"placeholder":"说点什么吧...","recordIP":true,"serverURLs":"https://api.okzhp.tk","visitor":true}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/js/cal-runtime.js"></script>
+
+<script type="text/javascript" src="/js/click-boom.js"></script>
+
+<script type="text/javascript" src="/js/input-boom.js"></script>
+<script type="text/javascript">
+POWERMODE.colorful = true; 
+POWERMODE.shake = true; 
+document.body.addEventListener('input', POWERMODE);
+</script>
+
+<script type="text/javascript" src="/js/busuanzi.pure.mini.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/typeit@6.1.1/dist/typeit.min.js"></script>
+
+<script type="text/javascript">
+
+    
+    let url = "https://v1.hitokoto.cn/?c=a&c=b&c=k&c=j&c=i&c=c&encode=text"
+    oneWord();
+    function oneWord() {
+        let req = new XMLHttpRequest();
+        req.open("GET", url);
+        req.responseType = "text"
+        req.send();
+        req.onload = function() {
+            let text = "一个人在他停止学习的时候就已经死了";
+            if (req.status === 200) { 
+                text = req.responseText;
+            }
+            new TypeIt("#id-1", {
+                strings: text,
+            }).go();
+        };
+    }
+
+</script></body>
+</html>
