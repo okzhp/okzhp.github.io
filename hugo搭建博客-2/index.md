@@ -24,7 +24,7 @@
 >
 > 出处：点击特效未找到出处，输入特效是我在github中发现的一个项目[传送门](https://github.com/disjukr/activate-power-mode).
 
-1. 将[click-boom.js](https://image.okzhp.tk/js/click-boom.js)、[input-boom.js](https://image.okzhp.tk/js/input-boom.js)下载至js文件夹。
+1. 将[click-boom.js](https://image.okzhp.xyz/js/click-boom.js)、[input-boom.js](https://image.okzhp.xyz/js/input-boom.js)下载至js文件夹。
 
 2. 将`themes/LoveIt/layouts/partials/assets.html`复制到`layouts/partials/assets.html`（根目录下的文件优先级高于主题内的文件，在外部改动将不影响后续主题版本更新）
 
@@ -51,7 +51,7 @@
 
 效果如下，（本地网络的次数有误，上线后正常）
 
-![](https://image.okzhp.tk/img/20230103004209.png)
+![](https://image.okzhp.xyz/img/20230103004209.png)
 
 1. 在assets.html引入js处添加以下：
 
@@ -132,7 +132,7 @@ setInterval(siteTime, 1000);
 
 三个参数分别如下图：
 
-![](https://image.okzhp.tk/img/20230103002056.png)
+![](https://image.okzhp.xyz/img/20230103002056.png)
 
 如果有域名，最好绑定自己的域名。
 
@@ -140,7 +140,7 @@ setInterval(siteTime, 1000);
 
 顺带提一下，在后台也可以对评论进行一些操作：
 
-![image-20230103183610395](https://image.okzhp.tk/img/image-20230103183610395.png)
+![image-20230103183610395](https://image.okzhp.xyz/img/image-20230103183610395.png)
 
 ### 4.副标题引用一言Api
 
@@ -226,7 +226,7 @@ git push -u origin master
 
 push完后在仓库页面，选择部署分支为当前分支master，
 
-![](https://image.okzhp.tk/img/20230103172740.png)
+![](https://image.okzhp.xyz/img/20230103172740.png)
 
 github将自动部署该博客，通过`用户名.github.io`即可访问。
 
@@ -271,7 +271,7 @@ github.io的ip地址为：
 
 DNS解析通常要几分钟才能生效，随后在github page页面配置该域名即可：
 
-![image-20230103175410983](https://image.okzhp.tk/img/image-20230103175410983.png)
+![image-20230103175410983](https://image.okzhp.xyz/img/image-20230103175410983.png)
 
 至此就完成了对域名的配置。
 
@@ -287,17 +287,17 @@ DNS解析通常要几分钟才能生效，随后在github page页面配置该域
 
 首先打开对象存储-空间管理-新建空间，如图：
 
-![](https://image.okzhp.tk/img/20230103011907.png)
+![](https://image.okzhp.xyz/img/20230103011907.png)
 
 新建一个空间，创建完毕后，在对应位置记住红框内的五个参数，后面要使用：
 
-![image-20230103180735685](https://image.okzhp.tk/img/image-20230103180735685.png)
+![image-20230103180735685](https://image.okzhp.xyz/img/image-20230103180735685.png)
 
 #### PicGo
 
 在[PicGo is Here | PicGo](https://picgo.github.io/PicGo-Doc/zh/guide/#下载安装)页面下载PicGo。在设置中进行参数配置：
 
-![image-20230103181243713](https://image.okzhp.tk/img/image-20230103181243713.png)
+![image-20230103181243713](https://image.okzhp.xyz/img/image-20230103181243713.png)
 
 设定访问网址即七牛云提供的临时域名或者绑定的域名。区域则填对应的区域代码：华东z0，华北z1，华南z2，北美na0，东南亚as0 
 
@@ -307,7 +307,7 @@ DNS解析通常要几分钟才能生效，随后在github page页面配置该域
 
 随后在md编辑器typora偏好设置-图像 选择picgo安装路径：
 
-![image-20230103181817426](https://image.okzhp.tk/img/image-20230103181817426.png)
+![image-20230103181817426](https://image.okzhp.xyz/img/image-20230103181817426.png)
 
 配置完毕后，在typora粘贴图片时将自动上传至七牛云并引用其超链接，可以很方便的引用图片。
 

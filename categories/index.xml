@@ -1,8 +1,88 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Categories - Category - 朱慧鹏的博客</title>
-        <link>http://example.org/categories/</link>
-        <description>Categories - Category - 朱慧鹏的博客</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>1241683615@qq.com (朱慧鹏)</managingEditor>
-            <webMaster>1241683615@qq.com (朱慧鹏)</webMaster><atom:link href="http://example.org/categories/" rel="self" type="application/rss+xml" /></channel>
+        <title>Categories - 分类 - Okzhp</title>
+        <link>https://okzhp.github.io/categories/</link>
+        <description>Categories - 分类 - Okzhp</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1241683615@qq.com (Caspian)</managingEditor>
+            <webMaster>1241683615@qq.com (Caspian)</webMaster><lastBuildDate>Mon, 10 Jul 2023 19:41:18 &#43;0800</lastBuildDate><atom:link href="https://okzhp.github.io/categories/" rel="self" type="application/rss+xml" /><item>
+    <title>姑且叫日记吧</title>
+    <link>https://okzhp.github.io/categories/%E5%A7%91%E4%B8%94%E5%8F%AB%E6%97%A5%E8%AE%B0%E5%90%A7/</link>
+    <pubDate>Mon, 10 Jul 2023 19:41:18 &#43;0800</pubDate>
+    <author>Caspian</author>
+    <guid>https://okzhp.github.io/categories/%E5%A7%91%E4%B8%94%E5%8F%AB%E6%97%A5%E8%AE%B0%E5%90%A7/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Spring</title>
+    <link>https://okzhp.github.io/categories/spring/</link>
+    <pubDate>Tue, 28 Feb 2023 23:00:16 &#43;0800</pubDate>
+    <author>Caspian</author>
+    <guid>https://okzhp.github.io/categories/spring/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>SpringBoot</title>
+    <link>https://okzhp.github.io/categories/springboot/</link>
+    <pubDate>Tue, 28 Feb 2023 23:00:16 &#43;0800</pubDate>
+    <author>Caspian</author>
+    <guid>https://okzhp.github.io/categories/springboot/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>操作系统</title>
+    <link>https://okzhp.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</link>
+    <pubDate>Tue, 28 Feb 2023 20:14:57 &#43;0800</pubDate>
+    <author>Caspian</author>
+    <guid>https://okzhp.github.io/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>计算机网络</title>
+    <link>https://okzhp.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
+    <pubDate>Tue, 28 Feb 2023 20:14:57 &#43;0800</pubDate>
+    <author>Caspian</author>
+    <guid>https://okzhp.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>MySQL</title>
+    <link>https://okzhp.github.io/categories/mysql/</link>
+    <pubDate>Mon, 27 Feb 2023 17:05:44 &#43;0800</pubDate>
+    <author>Caspian</author>
+    <guid>https://okzhp.github.io/categories/mysql/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Git</title>
+    <link>https://okzhp.github.io/categories/git/</link>
+    <pubDate>Sat, 25 Feb 2023 01:06:13 &#43;0800</pubDate>
+    <author>Caspian</author>
+    <guid>https://okzhp.github.io/categories/git/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>Java</title>
+    <link>https://okzhp.github.io/categories/java/</link>
+    <pubDate>Fri, 24 Feb 2023 15:03:07 &#43;0800</pubDate>
+    <author>Caspian</author>
+    <guid>https://okzhp.github.io/categories/java/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>博客搭建</title>
+    <link>https://okzhp.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</link>
+    <pubDate>Tue, 03 Jan 2023 15:53:43 &#43;0800</pubDate>
+    <author>Caspian</author>
+    <guid>https://okzhp.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
+    <title>年度总结</title>
+    <link>https://okzhp.github.io/categories/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/</link>
+    <pubDate>Sat, 31 Dec 2022 14:35:53 &#43;0800</pubDate>
+    <author>Caspian</author>
+    <guid>https://okzhp.github.io/categories/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/</guid>
+    <description><![CDATA[]]></description>
+</item>
+</channel>
 </rss>

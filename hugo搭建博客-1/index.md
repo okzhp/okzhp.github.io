@@ -61,7 +61,7 @@ Hugo官网推荐使用Hugo前安装Git和Go。在我搭建博客的过程中，g
 
 Hugo有两个版本，这是[官网安装Hugo](https://gohugo.io/installation/)的说明：
 
-![](https://image.okzhp.tk/img/20230102191155.png)
+![](https://image.okzhp.xyz/img/20230102191155.png)
 
 安装方式有好几种，选择一种安装即可：
 
@@ -69,11 +69,11 @@ Hugo有两个版本，这是[官网安装Hugo](https://gohugo.io/installation/)�
 
 2. 通过包管理器安装（一行命令即可，但需要首先安装对应包管理器）。
 
-   ![](https://image.okzhp.tk/img/20230102193810.png)
+   ![](https://image.okzhp.xyz/img/20230102193810.png)
 
 3. 通过Go安装构建。
 
-   ![](https://image.okzhp.tk/img/20230102193854.png)
+   ![](https://image.okzhp.xyz/img/20230102193854.png)
 
    简单来说，需要先安装git以及1.18版本以上的go并设置好环境变量。然后执行下面两条命令：
 
@@ -121,7 +121,7 @@ hugo serve
 
 此时，网站还非常简陋，如下：
 
-![](https://image.okzhp.tk/img/20230102201336.png)
+![](https://image.okzhp.xyz/img/20230102201336.png)
 
 至此，骨架已经搭建完毕。下面将对界面进行基本的配置。
 
@@ -914,7 +914,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
 
 使用该配置文件后，应该是这个样子：（尝试点击各个菜单）
 
-![](https://image.okzhp.tk/img/20230102225136.png)
+![](https://image.okzhp.xyz/img/20230102225136.png)
 
 可以看到，目前还没有头像，在static文件夹下创建images文件夹，并找一张合适的图片命名为avatar.png放在里面，即可正确显示头像。
 

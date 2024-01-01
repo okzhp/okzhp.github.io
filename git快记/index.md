@@ -5,7 +5,7 @@
 
 参考链接：[创建与合并分支 - 廖雪峰的官方网站 (liaoxuefeng.com)](https://www.liaoxuefeng.com/wiki/896043488029600/900003767775424)
 
-![](https://image.okzhp.tk/img/20230104192418.png)
+![](https://image.okzhp.xyz/img/20230104192418.png)
 
 ```shell
 将本地仓库和远程仓库相关联，远程仓库名为origin
@@ -50,4 +50,4 @@ git branch -d dev
 
 如下，直接push远程仓库origin时提示未绑定远程分支，执行上边命令后将绑定分支，后续提交可直接git push origin
 
-![image-20230105235949366](https://image.okzhp.tk/img/image-20230105235949366.png)
+![image-20230105235949366](https://image.okzhp.xyz/img/image-20230105235949366.png)

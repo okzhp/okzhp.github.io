@@ -41,7 +41,7 @@ delete是删除数据，删除所有数据不影响自增id，可以回滚，速
 
 ## 2.1MySQL架构
 
-![](https://image.okzhp.tk/img/20230227183941.png)
+![](https://image.okzhp.xyz/img/20230227183941.png)
 
 ## 2.2MySQL存储引擎
 
@@ -84,7 +84,7 @@ delete是删除数据，删除所有数据不影响自增id，可以回滚，速
 >
 > select ID from T where k between 3 and 5，就用到了覆盖索引，索引树k直接包含了要查询的ID，就无需再次回表查询，称为覆盖索引。
 
-![](https://image.okzhp.tk/img/20230227223931.png)
+![](https://image.okzhp.xyz/img/20230227223931.png)
 
 **索引的类型？**
 

@@ -9,7 +9,7 @@
 
 七层模型：
 
-![](https://image.okzhp.tk/img/20230228202004.png)
+![](https://image.okzhp.xyz/img/20230228202004.png)
 
 四层模型：
 
