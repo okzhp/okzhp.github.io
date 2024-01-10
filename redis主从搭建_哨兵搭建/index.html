@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Redis主从搭建_哨兵搭建 - Okzhp</title><meta name="Description" content="这是我的全新 Hugo 网站"><meta property="og:title" content="Redis主从搭建_哨兵搭建" />
+<meta property="og:description" content="Redis主从搭建 工作中虽然用过redis，但是并没有深入研究整个搭建的过程，搭建过程中也踩了不少坑，借此记录一下。 1、兵马未动，粮草先行 为" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/" /><meta property="og:image" content="https://okzhp.github.io/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-01-09T21:22:20+08:00" />
+<meta property="article:modified_time" content="2024-01-09T21:22:20+08:00" /><meta property="og:site_name" content="我的网站" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://okzhp.github.io/logo.png"/>
+
+<meta name="twitter:title" content="Redis主从搭建_哨兵搭建"/>
+<meta name="twitter:description" content="Redis主从搭建 工作中虽然用过redis，但是并没有深入研究整个搭建的过程，搭建过程中也踩了不少坑，借此记录一下。 1、兵马未动，粮草先行 为"/>
+<meta name="application-name" content="我的网站">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/" /><link rel="prev" href="https://okzhp.github.io/%E6%88%91%E7%9A%842023/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Redis主从搭建_哨兵搭建",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/okzhp.github.io\/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA\/"
+        },"genre": "posts","keywords": "","wordcount":  3353 ,
+        "url": "https:\/\/okzhp.github.io\/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA\/","datePublished": "2024-01-09T21:22:20+08:00","dateModified": "2024-01-09T21:22:20+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Caspian"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Okzhp"><span class="header-title-pre"><i class="fab fa-joomla"></i></span>Okzhp</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about"> 关于 </a><a class="menu-item" href="https://github.com/okzhp" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i>  </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Okzhp"><span class="header-title-pre"><i class="fab fa-joomla"></i></span>Okzhp</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about" title="">关于</a><a class="menu-item" href="https://github.com/okzhp" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw' aria-hidden='true'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Redis主从搭建_哨兵搭建</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Caspian</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-01-09">2024-01-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3353 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 7 分钟&nbsp;<span id="/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/" class="leancloud_visitors" data-flag-title="Redis主从搭建_哨兵搭建">
+                        <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
+                    </span>&nbsp;
+
+
+            </div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#redis主从搭建">Redis主从搭建</a></li>
+    <li><a href="#1兵马未动粮草先行">1、兵马未动，粮草先行</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="redis主从搭建">Redis主从搭建</h2>
+<blockquote>
+<p>工作中虽然用过redis，但是并没有深入研究整个搭建的过程，搭建过程中也踩了不少坑，借此记录一下。</p>
+</blockquote>
+<h2 id="1兵马未动粮草先行">1、兵马未动，粮草先行</h2>
+<p>为了更贴近实际，我准备了三台虚拟机，搭建一个一主两从的模型，后面的哨兵搭建也是基于主从搭建。</p>
+<p>在三台虚拟机中各自安装redis，linux用的是ubuntu 22.04这个版本，安装过程参考[redis官网<a href="https://redis.io/docs/install/install-redis/install-redis-on-linux/" target="_blank" rel="noopener noreffer ">Install Redis on Linux | Redis</a>]，但也有一些要注意的地方：</p>
+<div class="details admonition info open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-info-circle fa-fw" aria-hidden="true"></i>提示<i class="details-icon fas fa-angle-right fa-fw" aria-hidden="true"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><ol>
+<li>
+<p>使用一行命令<code>sudo snap install redis</code>可以安装，但是这种方式的安装目录有些封闭，且难以进行配置，一开始用这种方式安装的，后面配置起来就很不方便，故不采用这种放松。</p>
+</li>
+<li>
+<p>熟悉linux安装的话，可能直接就想到使用<code>sudo apt install redis</code>，这样是可以，但是安装的版本可能不是最新的，（也可能是因为没执行<code>sudo apt update</code>和<code>sudo apt upgrade</code>）,如果搭建主从，redis版本应该是需要统一的，因为我用6.x的版本和7.x的版本并不能正常进行数据同步。因此，除非对版本有明确要求，否则安装时最好无脑选择官网推荐的第一种方式，这种方式安装的是最新(稳定)版本，即：</p>
+</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo apt install lsb-release curl gpg
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">curl -fsSL https://packages.redis.io/gpg <span class="p">|</span> sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> main&#34;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/redis.list
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo apt-get update
+</span></span><span class="line"><span class="cl">sudo apt-get install redis
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#最后一步 可能由于网络原因失败，多试几次基本没问题</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>确保三台虚拟机的ip处于同一网段。</li>
+<li>这个版本的ubuntu，安装时会创建一个非root账户，有些服务的目录只有切换到root账户才能看到，这个后面会讲。</li>
+</ol>
+</div>
+        </div>
+    </div>
+<p>准备完毕后，情况如下：</p>
+<p>虚拟机a：192.168.8.18，用户是aaa</p>
+<p>虚拟机b：192.168.8.19，用户是bbb</p>
+<p>虚拟机c： 192.168.8.21，用户是ccc</p>
+<p>如果需要通过ssh连接，需要先安装<code>sudo apt-get install openssh-server</code>开放ssh服务，这个版本默认是关闭的，不安装的话连接是会被拒绝的，我在三台虚拟机分别装好了redis和openssh，然后通过ssh工具连接，方便统一操作，最终如图：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://image.okzhp.xyz/img/20240109222113.png"
+        data-srcset="https://image.okzhp.xyz/img/20240109222113.png, https://image.okzhp.xyz/img/20240109222113.png 1.5x, https://image.okzhp.xyz/img/20240109222113.png 2x"
+        data-sizes="auto"
+        alt="https://image.okzhp.xyz/img/20240109222113.png"
+        title="https://image.okzhp.xyz/img/20240109222113.png" /></p>
+<p>通过命令<code>service redis-server status</code>查看redis状态，可以看到三台服务器的redis服务都已启动：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://image.okzhp.xyz/img/20240109224020.png"
+        data-srcset="https://image.okzhp.xyz/img/20240109224020.png, https://image.okzhp.xyz/img/20240109224020.png 1.5x, https://image.okzhp.xyz/img/20240109224020.png 2x"
+        data-sizes="auto"
+        alt="https://image.okzhp.xyz/img/20240109224020.png"
+        title="https://image.okzhp.xyz/img/20240109224020.png" /></p>
+<p>至此准备工作已完成，接下来需要将它们设置主从关系。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">#查看服务当前状态</span>
+</span></span><span class="line"><span class="cl">service redis-server status
+</span></span><span class="line"><span class="cl"><span class="c1">#停止服务</span>
+</span></span><span class="line"><span class="cl">service redis-server stop
+</span></span><span class="line"><span class="cl"><span class="c1">#启动服务</span>
+</span></span><span class="line"><span class="cl">service redis-server start
+</span></span><span class="line"><span class="cl"><span class="c1">#重启服务</span>
+</span></span><span class="line"><span class="cl">service redis-server restart
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="2运筹帷幄决胜千里">2、运筹帷幄，决胜千里</h1>
+<p>准备工作做完后，这一步主要就是做一些配置，虽然网上很多教程，但是只能说千人千面，别人的只能拿来参考，只有真正动手实践才能融会贯通，这一步也有不少坑。</p>
+<p>首先要说明的是，通过命令<code>ps -ef|grep redis</code>可以看到，redis服务的运行者是redis，如果我们使用账户aaa去查看redis的配置，它会提醒我们没有权限，即使我们使用<code>chmod</code>修改了权限，里边的配置文件仍然是空的，因此我们需要切换到root用户，直接修改配置文件。</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://image.okzhp.xyz/img/20240109225522.png"
+        data-srcset="https://image.okzhp.xyz/img/20240109225522.png, https://image.okzhp.xyz/img/20240109225522.png 1.5x, https://image.okzhp.xyz/img/20240109225522.png 2x"
+        data-sizes="auto"
+        alt="https://image.okzhp.xyz/img/20240109225522.png"
+        title="https://image.okzhp.xyz/img/20240109225522.png" /></p>
+<blockquote>
+<p>redis默认的一些目录（需要root用户）：</p>
+<p>配置文件：/etc/redis/redis.conf  最重要的！日志文件和备份文件的路径都在配置文件里配置。</p>
+<p>日志文件：/var/log/redis/redis-server.log</p>
+<p>RDB备份文件：/var/lib/redis/dump.rdb</p>
+</blockquote>
+<p>后续需要修改配置文件，使用<code>apt install vim</code>安装一下vim。</p>
+<p>这一步修改配置有两种方式，一种是直接修改redis.conf文件，这种方式修改完是永久生效的，即使重启也会生效；另一种是通过redis-cli连接redis后，通过<code>config set key value</code>的方式修改指定的配置，这种方式是临时生效，重启后需要重新配置。</p>
+<p>这里主要讲下第一种方式，主打一个一劳永逸！需要配置的地方也不多，在配置文件中找到以下参数并配置即可：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="c1"># 默认redis不允许别的主机访问，0代表所有主机都可以访问</span>
+</span></span><span class="line"><span class="cl"><span class="na">bind</span> <span class="s">0.0.0.0</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 保护模式，默认是开的，没有密码的情况下不允许别的主机访问，这里把它关掉</span>
+</span></span><span class="line"><span class="cl"><span class="na">protected-mode</span> <span class="s">no</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#其余有非常多的配置，后续可以根据需要细看</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#这里有一个关键参数，下文细🔒</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#replicaof &lt;masterip&gt; &lt;masterport&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>redis默认是主节点，因此<code>replicaof </code>默认是注释的（这个参数等效于slaveof，只不过slaveof参数有些老了），这里我选择a作为主节点，b、c作为从节点，因此我在b、c的配置文件中配置<code>replicaof 192.168.8.18 6379</code>,意味b、c作为a的从节点。</p>
+<p>修改完配置，需要重启服务<code>service redis-server restart</code>，三台服务器都需要进行配置，配置完成后对其进行验证。</p>
+<p>在a服务器上，使用redis-cli命令连接redis，此时<code>keys *</code>还没有值，通过 <code>info replication</code>可以看到a节点为主节点，且有两个从节点，如下图：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://image.okzhp.xyz/img/20240109235304.png"
+        data-srcset="https://image.okzhp.xyz/img/20240109235304.png, https://image.okzhp.xyz/img/20240109235304.png 1.5x, https://image.okzhp.xyz/img/20240109235304.png 2x"
+        data-sizes="auto"
+        alt="https://image.okzhp.xyz/img/20240109235304.png"
+        title="https://image.okzhp.xyz/img/20240109235304.png" /></p>
+<p>在b服务器上，执行同样的命令，可以看到b为从节点，且主节点是a节点，如图：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://image.okzhp.xyz/img/20240109235244.png"
+        data-srcset="https://image.okzhp.xyz/img/20240109235244.png, https://image.okzhp.xyz/img/20240109235244.png 1.5x, https://image.okzhp.xyz/img/20240109235244.png 2x"
+        data-sizes="auto"
+        alt="https://image.okzhp.xyz/img/20240109235244.png"
+        title="https://image.okzhp.xyz/img/20240109235244.png" /></p>
+<p>c服务器同b。</p>
+<p>这样主从关系就配置完成了，这还不够，因为还需要验证主从数据同步，在主从模式中，主节点负责写入，从节点负责同步，只需在a节点写入数据，然后在b、c节点查看数据是否同步过来了即可：</p>
+<p>a节点写入：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://image.okzhp.xyz/img/20240110150448.png"
+        data-srcset="https://image.okzhp.xyz/img/20240110150448.png, https://image.okzhp.xyz/img/20240110150448.png 1.5x, https://image.okzhp.xyz/img/20240110150448.png 2x"
+        data-sizes="auto"
+        alt="https://image.okzhp.xyz/img/20240110150448.png"
+        title="https://image.okzhp.xyz/img/20240110150448.png" /></p>
+<p>去b、c节点查看：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://image.okzhp.xyz/img/20240109235219.png"
+        data-srcset="https://image.okzhp.xyz/img/20240109235219.png, https://image.okzhp.xyz/img/20240109235219.png 1.5x, https://image.okzhp.xyz/img/20240109235219.png 2x"
+        data-sizes="auto"
+        alt="https://image.okzhp.xyz/img/20240109235219.png"
+        title="https://image.okzhp.xyz/img/20240109235219.png" /></p>
+<p>可以看到可以正常同步。如果配置都没问题，但是同步不了，首先看下redis版本是否一致，如果版本不一致很有可能是无法同步的：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://image.okzhp.xyz/img/20240109234904.png"
+        data-srcset="https://image.okzhp.xyz/img/20240109234904.png, https://image.okzhp.xyz/img/20240109234904.png 1.5x, https://image.okzhp.xyz/img/20240109234904.png 2x"
+        data-sizes="auto"
+        alt="https://image.okzhp.xyz/img/20240109234904.png"
+        title="https://image.okzhp.xyz/img/20240109234904.png" /></p>
+<p>如果出现版本不一致，只有祈祷可以卸载干净，并且再安装的时候不会出现依赖错误😶,反正出现了两三次我只能重装系统，引擎搜烂了都解决不了这个错误，但是，程序嘛，总会有各种各样的问题，哪怕完全一样的步骤，也可能因为其他因素（网络、系统版本等）导致结果不一样，这个只能放平心态。</p>
+<p>至此，主从模式就搭建完毕了。</p>
+<blockquote>
+<p>主从模式存在一个问题，假如主节点挂了，系统就无法向redis写入数据，直到主节点恢复正常。这可能是无法接受的，此时，就可以在此基础上搭建哨兵模式——在主节点挂了以后，会自动选取其他节点为新的主节点。</p>
+</blockquote>
+<h1 id="3一鼓作气乘胜追击">3、一鼓作气，乘胜追击</h1>
+<blockquote>
+<p>在搭建哨兵模式时，我发现了以服务形式安装redis的种种弊端，尝试了若干种安装redis的形式，最终发现还是编译源码的方式最稳定可靠。使用apt安装的服务莫名会出现依赖错误，而且难以解决。原本的计划是在上边三台服务器中各自启动一个哨兵，但由于使用apt安装的reids并不包含sentinel服务，需要单独去安装sentinel，并且后面出现了依赖的问题，我不想重装系统&hellip;于是&hellip;</p>
+</blockquote>
+<p>先提一句，以后安装还是老实地用编译源码的形式吧！</p>
+<p>我又启了一台虚拟机，打算在这上边部署三个哨兵。上节的三台服务器ip分别为18、19、21，后来打开ip变成了15、16、17，其中16是主节点，15、17是从节点！</p>
+<p>在这台虚拟机上，我使用了编译源码的形式安装了redis，当然也包括了redis-sentinel。具体安装命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1">#在~/app目录下下载redis包</span>
+</span></span><span class="line"><span class="cl">weget http://download.redis.io/releases/redis-7.2.4.tar.gz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#解压包</span>
+</span></span><span class="line"><span class="cl">tar -zxf redis-7.2.4.tar.gz
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> redis-7.2.4
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#编译命令需要gcc</span>
+</span></span><span class="line"><span class="cl">sudo apt-get install gcc
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#编译</span>
+</span></span><span class="line"><span class="cl">make
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#如果出错了清理一下</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#make distclean</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#如果没出错，执行安装即可</span>
+</span></span><span class="line"><span class="cl">make install
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>安装完后，命令在<code>/usr/local/bin</code>目录下，redis目录下有一个默认的sentinel.conf文件，把它复制出来三份。修改其中的端口分别为26379、26380、26381，以及 <code>sentinel monitor mymaster 192.168.8.16 6379 2</code></p>
+<p>为了看到选举过程，没有启动守护，因此开了三个终端运行三个哨兵服务：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">redis-sentinel ./sentinel-1.conf 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">redis-sentinel ./sentinel-2.conf 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">redis-sentinel ./sentinel-3.conf 
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>把主节点16停止服务，大约经过30秒左右，原本为从节点的17已经成为了主节点：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://image.okzhp.xyz/img/20240110174946.png"
+        data-srcset="https://image.okzhp.xyz/img/20240110174946.png, https://image.okzhp.xyz/img/20240110174946.png 1.5x, https://image.okzhp.xyz/img/20240110174946.png 2x"
+        data-sizes="auto"
+        alt="https://image.okzhp.xyz/img/20240110174946.png"
+        title="https://image.okzhp.xyz/img/20240110174946.png" /></p>
+<p>而原本为从节点的15新的主节点也变成了17</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://image.okzhp.xyz/img/20240110175014.png"
+        data-srcset="https://image.okzhp.xyz/img/20240110175014.png, https://image.okzhp.xyz/img/20240110175014.png 1.5x, https://image.okzhp.xyz/img/20240110175014.png 2x"
+        data-sizes="auto"
+        alt="https://image.okzhp.xyz/img/20240110175014.png"
+        title="https://image.okzhp.xyz/img/20240110175014.png" /></p>
+<p>可以看到，主节点下线后，会从剩余的从节点中选举出一个作为主节点，这是sentinel-1的选举过程：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://image.okzhp.xyz/img/20240110175522.png"
+        data-srcset="https://image.okzhp.xyz/img/20240110175522.png, https://image.okzhp.xyz/img/20240110175522.png 1.5x, https://image.okzhp.xyz/img/20240110175522.png 2x"
+        data-sizes="auto"
+        alt="https://image.okzhp.xyz/img/20240110175522.png"
+        title="https://image.okzhp.xyz/img/20240110175522.png" /></p>
+<p>自动选举的过程会修改redis.conf文件和sentinel.conf文件。</p>
+<p>原来的主节点上线后，可以看到已经成为了新主节点的从节点：</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://image.okzhp.xyz/img/20240110175839.png"
+        data-srcset="https://image.okzhp.xyz/img/20240110175839.png, https://image.okzhp.xyz/img/20240110175839.png 1.5x, https://image.okzhp.xyz/img/20240110175839.png 2x"
+        data-sizes="auto"
+        alt="https://image.okzhp.xyz/img/20240110175839.png"
+        title="https://image.okzhp.xyz/img/20240110175839.png" /></p>
+<h1 id="4知己知彼百战不殆">4、知己知彼，百战不殆</h1>
+<p>这只是简单的搭建了主从和哨兵模式，其实有很多可以配置的地方，比如密码、存放文件的目录、其他一些参数等等。千里之行始于足下，先把第一步走扎实，至于后面再细细研究。</p>
+<blockquote>
+<p>可以认真看下默认的redis.conf和sentinel.conf，对于每项参数都有英文说明，认真看一遍再结合搜索引擎，基本就懂个七七八八了。</p>
+</blockquote>
+<p>当然，redis还有一个集群模式，这个留着下次记录🤣</p>
+<blockquote>
+<p>插个眼，里边有redis四种模式</p>
+<p><a href="https://www.didispace.com/installation-guide/middleware/redis-cluster.html" target="_blank" rel="noopener noreffer ">Redis Cluster模式部署 | 程序猿DD (didispace.com)</a></p>
+</blockquote>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2024-01-09</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/" data-title="Redis主从搭建_哨兵搭建" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/" data-title="Redis主从搭建_哨兵搭建"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/" data-title="Redis主从搭建_哨兵搭建"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/" data-title="Redis主从搭建_哨兵搭建"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/">Tags</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/%E6%88%91%E7%9A%842023/" class="prev" rel="prev" title="我的2023"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>我的2023</a></div>
+</div>
+<div id="comments"><div id="valine" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
+            </noscript></div></article></div>
+            </main>
+<canvas width="1366" height="662" style="position: fixed; left: 0px; top: 0px; z-index: 2147483647; pointer-events: none;"></canvas><footer class="footer">
+        <div class="footer-container">
+            
+            <div class="footer-line">
+                <span id="run-time"></span>
+            </div>
+            
+            <div class="busuanzi-footer">
+                <span id="busuanzi_container_site_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_site_pv"></span>次
+                </span>&nbsp;|&nbsp;
+                <span id="busuanzi_container_site_uv">
+                    <i class="fas fa-users"></i>
+                    <span id="busuanzi_value_site_uv"></span>人次
+                </span></div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Caspian</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/valine/valine.min.css"><link rel="stylesheet" href="/lib/katex/katex.min.css"><script type="text/javascript" src="/lib/valine/Valine.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{"valine":{"appId":"UEpLcdixynrCLnKUw0Tux5hK-MdYXbMMI","appKey":"krDHzbea1rh6NJEQuNCwg60u","avatar":"retro","el":"#valine","emojiCDN":"https://cdn.jsdelivr.net/npm/emoji-datasource-twitter@14.0.0/img/twitter/64/","emojiMaps":{"100":"1f4af.png","alien":"1f47d.png","anger":"1f4a2.png","angry":"1f620.png","anguished":"1f627.png","astonished":"1f632.png","black_heart":"1f5a4.png","blue_heart":"1f499.png","blush":"1f60a.png","bomb":"1f4a3.png","boom":"1f4a5.png","broken_heart":"1f494.png","brown_heart":"1f90e.png","clown_face":"1f921.png","cold_face":"1f976.png","cold_sweat":"1f630.png","confounded":"1f616.png","confused":"1f615.png","cry":"1f622.png","crying_cat_face":"1f63f.png","cupid":"1f498.png","dash":"1f4a8.png","disappointed":"1f61e.png","disappointed_relieved":"1f625.png","dizzy":"1f4ab.png","dizzy_face":"1f635.png","drooling_face":"1f924.png","exploding_head":"1f92f.png","expressionless":"1f611.png","face_vomiting":"1f92e.png","face_with_cowboy_hat":"1f920.png","face_with_hand_over_mouth":"1f92d.png","face_with_head_bandage":"1f915.png","face_with_monocle":"1f9d0.png","face_with_raised_eyebrow":"1f928.png","face_with_rolling_eyes":"1f644.png","face_with_symbols_on_mouth":"1f92c.png","face_with_thermometer":"1f912.png","fearful":"1f628.png","flushed":"1f633.png","frowning":"1f626.png","ghost":"1f47b.png","gift_heart":"1f49d.png","green_heart":"1f49a.png","grimacing":"1f62c.png","grin":"1f601.png","grinning":"1f600.png","hankey":"1f4a9.png","hear_no_evil":"1f649.png","heart":"2764-fe0f.png","heart_decoration":"1f49f.png","heart_eyes":"1f60d.png","heart_eyes_cat":"1f63b.png","heartbeat":"1f493.png","heartpulse":"1f497.png","heavy_heart_exclamation_mark_ornament":"2763-fe0f.png","hole":"1f573-fe0f.png","hot_face":"1f975.png","hugging_face":"1f917.png","hushed":"1f62f.png","imp":"1f47f.png","innocent":"1f607.png","japanese_goblin":"1f47a.png","japanese_ogre":"1f479.png","joy":"1f602.png","joy_cat":"1f639.png","kiss":"1f48b.png","kissing":"1f617.png","kissing_cat":"1f63d.png","kissing_closed_eyes":"1f61a.png","kissing_heart":"1f618.png","kissing_smiling_eyes":"1f619.png","laughing":"1f606.png","left_speech_bubble":"1f5e8-fe0f.png","love_letter":"1f48c.png","lying_face":"1f925.png","mask":"1f637.png","money_mouth_face":"1f911.png","nauseated_face":"1f922.png","nerd_face":"1f913.png","neutral_face":"1f610.png","no_mouth":"1f636.png","open_mouth":"1f62e.png","orange_heart":"1f9e1.png","partying_face":"1f973.png","pensive":"1f614.png","persevere":"1f623.png","pleading_face":"1f97a.png","pouting_cat":"1f63e.png","purple_heart":"1f49c.png","rage":"1f621.png","relaxed":"263a-fe0f.png","relieved":"1f60c.png","revolving_hearts":"1f49e.png","right_anger_bubble":"1f5ef-fe0f.png","robot_face":"1f916.png","rolling_on_the_floor_laughing":"1f923.png","scream":"1f631.png","scream_cat":"1f640.png","see_no_evil":"1f648.png","shushing_face":"1f92b.png","skull":"1f480.png","skull_and_crossbones":"2620-fe0f.png","sleeping":"1f634.png","sleepy":"1f62a.png","slightly_frowning_face":"1f641.png","slightly_smiling_face":"1f642.png","smile":"1f604.png","smile_cat":"1f638.png","smiley":"1f603.png","smiley_cat":"1f63a.png","smiling_face_with_3_hearts":"1f970.png","smiling_imp":"1f608.png","smirk":"1f60f.png","smirk_cat":"1f63c.png","sneezing_face":"1f927.png","sob":"1f62d.png","space_invader":"1f47e.png","sparkling_heart":"1f496.png","speak_no_evil":"1f64a.png","speech_balloon":"1f4ac.png","star-struck":"1f929.png","stuck_out_tongue":"1f61b.png","stuck_out_tongue_closed_eyes":"1f61d.png","stuck_out_tongue_winking_eye":"1f61c.png","sunglasses":"1f60e.png","sweat":"1f613.png","sweat_drops":"1f4a6.png","sweat_smile":"1f605.png","thinking_face":"1f914.png","thought_balloon":"1f4ad.png","tired_face":"1f62b.png","triumph":"1f624.png","two_hearts":"1f495.png","unamused":"1f612.png","upside_down_face":"1f643.png","weary":"1f629.png","white_frowning_face":"2639-fe0f.png","white_heart":"1f90d.png","wink":"1f609.png","woozy_face":"1f974.png","worried":"1f61f.png","yawning_face":"1f971.png","yellow_heart":"1f49b.png","yum":"1f60b.png","zany_face":"1f92a.png","zipper_mouth_face":"1f910.png","zzz":"1f4a4.png"},"enableQQ":true,"highlight":true,"lang":"zh-CN","meta":["nick","mail"],"pageSize":10,"placeholder":"说点什么吧...","recordIP":true,"serverURLs":"https://api.okzhp.tk","visitor":true}},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@2.1.3/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/js/cal-runtime.js"></script>
+
+<script type="text/javascript" src="/js/click-boom.js"></script>
+
+<script type="text/javascript" src="/js/input-boom.js"></script>
+<script type="text/javascript">
+POWERMODE.colorful = true; 
+POWERMODE.shake = true; 
+document.body.addEventListener('input', POWERMODE);
+</script>
+
+<script type="text/javascript" src="/js/busuanzi.pure.mini.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/typeit@6.1.1/dist/typeit.min.js"></script>
+
+<script type="text/javascript">
+
+    
+    let url = "https://v1.hitokoto.cn/?c=a&c=b&c=k&c=j&c=i&c=c&encode=text"
+    oneWord();
+    function oneWord() {
+        let req = new XMLHttpRequest();
+        req.open("GET", url);
+        req.responseType = "text"
+        req.send();
+        req.onload = function() {
+            let text = "一个人在他停止学习的时候就已经死了";
+            if (req.status === 200) { 
+                text = req.responseText;
+            }
+            new TypeIt("#id-1", {
+                strings: text,
+            }).go();
+        };
+    }
+
+</script></body>
+</html>

@@ -4,9 +4,17 @@
         <link>https://okzhp.github.io/</link>
         <description>这是我的全新 Hugo 网站</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1241683615@qq.com (Caspian)</managingEditor>
-            <webMaster>1241683615@qq.com (Caspian)</webMaster><lastBuildDate>Sun, 31 Dec 2023 12:37:52 &#43;0800</lastBuildDate>
+            <webMaster>1241683615@qq.com (Caspian)</webMaster><lastBuildDate>Tue, 09 Jan 2024 21:22:20 &#43;0800</lastBuildDate>
             <atom:link href="https://okzhp.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Redis主从搭建_哨兵搭建</title>
+    <link>https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/</link>
+    <pubDate>Tue, 09 Jan 2024 21:22:20 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/</guid>
+    <description><![CDATA[Redis主从搭建 工作中虽然用过redis，但是并没有深入研究整个搭建的过程，搭建过程中也踩了不少坑，借此记录一下。 1、兵马未动，粮草先行 为]]></description>
+</item>
+<item>
     <title>我的2023</title>
     <link>https://okzhp.github.io/%E6%88%91%E7%9A%842023/</link>
     <pubDate>Sun, 31 Dec 2023 12:37:52 &#43;0800</pubDate>
@@ -77,14 +85,6 @@
     <author>作者</author>
     <guid>https://okzhp.github.io/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-1/</guid>
     <description><![CDATA[这是Hugo搭建博客的第一期，第二期请参考：Hugo搭建博客（下） - Okzhp 1.前言 ​ 很早之前就想要搭建一个博客，奈何伊始眼界太窄，不知以何种方式]]></description>
-</item>
-<item>
-    <title>我的2022</title>
-    <link>https://okzhp.github.io/%E6%88%91%E7%9A%842022/</link>
-    <pubDate>Sat, 31 Dec 2022 14:35:53 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://okzhp.github.io/%E6%88%91%E7%9A%842022/</guid>
-    <description><![CDATA[📖前言 上次写总结还是21年12月写的述职报告，当时刚入职两个多月，也是我毕业后的第一份工作。转眼间一年过去了，若要用一句话形容22年的话，那]]></description>
 </item>
 </channel>
 </rss>
