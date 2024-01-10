@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/okzhp.github.io\/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA\/"
-        },"genre": "posts","keywords": "","wordcount":  3353 ,
+        },"genre": "posts","keywords": "Redis, 高可用","wordcount":  3353 ,
         "url": "https:\/\/okzhp.github.io\/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA\/","datePublished": "2024-01-09T21:22:20+08:00","dateModified": "2024-01-09T21:22:20+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -100,7 +100,7 @@
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Redis主从搭建_哨兵搭建</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Caspian</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Categories</a></span></div>
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Caspian</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>中间件</a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-01-09">2024-01-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 3353 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 7 分钟&nbsp;<span id="/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/" class="leancloud_visitors" data-flag-title="Redis主从搭建_哨兵搭建">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
@@ -117,6 +117,8 @@
   <ul>
     <li><a href="#redis主从搭建">Redis主从搭建</a></li>
     <li><a href="#1兵马未动粮草先行">1、兵马未动，粮草先行</a></li>
+    <li><a href="#2运筹帷幄决胜千里">2、运筹帷幄，决胜千里</a></li>
+    <li><a href="#3一鼓作气乘胜追击">3、一鼓作气，乘胜追击</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="redis主从搭建">Redis主从搭建</h2>
@@ -217,7 +219,7 @@
 </span></span><span class="line"><span class="cl">service redis-server restart
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h1 id="2运筹帷幄决胜千里">2、运筹帷幄，决胜千里</h1>
+</div><h2 id="2运筹帷幄决胜千里">2、运筹帷幄，决胜千里</h2>
 <p>准备工作做完后，这一步主要就是做一些配置，虽然网上很多教程，但是只能说千人千面，别人的只能拿来参考，只有真正动手实践才能融会贯通，这一步也有不少坑。</p>
 <p>首先要说明的是，通过命令<code>ps -ef|grep redis</code>可以看到，redis服务的运行者是redis，如果我们使用账户aaa去查看redis的配置，它会提醒我们没有权限，即使我们使用<code>chmod</code>修改了权限，里边的配置文件仍然是空的，因此我们需要切换到root用户，直接修改配置文件。</p>
 <p><img
@@ -317,7 +319,7 @@
 <blockquote>
 <p>主从模式存在一个问题，假如主节点挂了，系统就无法向redis写入数据，直到主节点恢复正常。这可能是无法接受的，此时，就可以在此基础上搭建哨兵模式——在主节点挂了以后，会自动选取其他节点为新的主节点。</p>
 </blockquote>
-<h1 id="3一鼓作气乘胜追击">3、一鼓作气，乘胜追击</h1>
+<h2 id="3一鼓作气乘胜追击">3、一鼓作气，乘胜追击</h2>
 <blockquote>
 <p>在搭建哨兵模式时，我发现了以服务形式安装redis的种种弊端，尝试了若干种安装redis的形式，最终发现还是编译源码的方式最稳定可靠。使用apt安装的服务莫名会出现依赖错误，而且难以解决。原本的计划是在上边三台服务器中各自启动一个哨兵，但由于使用apt安装的reids并不包含sentinel服务，需要单独去安装sentinel，并且后面出现了依赖的问题，我不想重装系统&hellip;于是&hellip;</p>
 </blockquote>
@@ -444,13 +446,13 @@
                             <a class="link-to-markdown" href="/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/" data-title="Redis主从搭建_哨兵搭建" data-hashtags=""><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/" data-hashtag=""><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/" data-title="Redis主从搭建_哨兵搭建"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/" data-title="Redis主从搭建_哨兵搭建"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/" data-title="Redis主从搭建_哨兵搭建"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/" data-title="Redis主从搭建_哨兵搭建" data-hashtags="Redis,高可用"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/" data-hashtag="Redis"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Hacker News" data-sharer="hackernews" data-url="https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/" data-title="Redis主从搭建_哨兵搭建"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/" data-title="Redis主从搭建_哨兵搭建"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/" data-title="Redis主从搭建_哨兵搭建"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/">Tags</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/redis/">Redis</a>,&nbsp;<a href="/tags/%E9%AB%98%E5%8F%AF%E7%94%A8/">高可用</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>

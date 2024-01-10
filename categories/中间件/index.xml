@@ -1,0 +1,24 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>中间件 - 分类 - Okzhp</title>
+        <link>https://okzhp.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/</link>
+        <description>中间件 - 分类 - Okzhp</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1241683615@qq.com (Caspian)</managingEditor>
+            <webMaster>1241683615@qq.com (Caspian)</webMaster><lastBuildDate>Tue, 09 Jan 2024 21:22:20 &#43;0800</lastBuildDate><atom:link href="https://okzhp.github.io/categories/%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="self" type="application/rss+xml" /><item>
+    <title>Redis主从搭建_哨兵搭建</title>
+    <link>https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/</link>
+    <pubDate>Tue, 09 Jan 2024 21:22:20 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/</guid>
+    <description><![CDATA[Redis主从搭建 工作中虽然用过redis，但是并没有深入研究整个搭建的过程，搭建过程中也踩了不少坑，借此记录一下。 1、兵马未动，粮草先行 为]]></description>
+</item>
+<item>
+    <title>MySQL核心概要</title>
+    <link>https://okzhp.github.io/mysql%E6%A0%B8%E5%BF%83%E6%A6%82%E8%A6%81/</link>
+    <pubDate>Mon, 27 Feb 2023 17:05:44 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://okzhp.github.io/mysql%E6%A0%B8%E5%BF%83%E6%A6%82%E8%A6%81/</guid>
+    <description><![CDATA[1.关系型数据库 1.1E-R图 Entity-Relationship图，实体关系图。在设计数据库时通常要画出E-R图来表明实体之间的关系，实]]></description>
+</item>
+</channel>
+</rss>

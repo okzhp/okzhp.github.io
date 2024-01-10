@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>高可用 - 标签 - Okzhp</title>
+        <link>https://okzhp.github.io/tags/%E9%AB%98%E5%8F%AF%E7%94%A8/</link>
+        <description>高可用 - 标签 - Okzhp</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1241683615@qq.com (Caspian)</managingEditor>
+            <webMaster>1241683615@qq.com (Caspian)</webMaster><lastBuildDate>Tue, 09 Jan 2024 21:22:20 &#43;0800</lastBuildDate><atom:link href="https://okzhp.github.io/tags/%E9%AB%98%E5%8F%AF%E7%94%A8/" rel="self" type="application/rss+xml" /><item>
+    <title>Redis主从搭建_哨兵搭建</title>
+    <link>https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/</link>
+    <pubDate>Tue, 09 Jan 2024 21:22:20 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/</guid>
+    <description><![CDATA[Redis主从搭建 工作中虽然用过redis，但是并没有深入研究整个搭建的过程，搭建过程中也踩了不少坑，借此记录一下。 1、兵马未动，粮草先行 为]]></description>
+</item>
+</channel>
+</rss>

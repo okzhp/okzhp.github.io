@@ -26,13 +26,13 @@
 数据链路层：负责数字信号和物理二进制信号的转换。
 
 > **各层常见协议：**
->
+> 
 > 应用层：Http（超文本传输协议）、Ftp(文件传输协议)、SMTP(邮件传输协议)、DNS（域名解析）、SSH、Telnet
->
+> 
 > 传输层：TCP（可靠）、UDP（不可靠）
->
+> 
 > 网络层：IP
->
+> 
 > 数据链路层：ARP（ip转mac）
 
 ## 1.2TCP和UDP
@@ -147,5 +147,4 @@ HTTP3.0之前基于TCP，之后基于UDP的QUIC协议。
 **局部性原理、快表和多级页表、逻辑地址&物理地址、虚拟内存及如何实现、页面置换算法**
 
 > 内容有点多，参考链接：[操作系统常见面试题总结 | JavaGuide(Java面试+学习指南)](https://javaguide.cn/cs-basics/operating-system/operating-system-basic-questions-01.html#cpu-寻址了解吗-为什么需要虚拟地址空间)
-
 

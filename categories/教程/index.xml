@@ -1,0 +1,24 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>教程 - 分类 - Okzhp</title>
+        <link>https://okzhp.github.io/categories/%E6%95%99%E7%A8%8B/</link>
+        <description>教程 - 分类 - Okzhp</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1241683615@qq.com (Caspian)</managingEditor>
+            <webMaster>1241683615@qq.com (Caspian)</webMaster><lastBuildDate>Tue, 03 Jan 2023 15:53:43 &#43;0800</lastBuildDate><atom:link href="https://okzhp.github.io/categories/%E6%95%99%E7%A8%8B/" rel="self" type="application/rss+xml" /><item>
+    <title>Hugo搭建博客（下）</title>
+    <link>https://okzhp.github.io/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-2/</link>
+    <pubDate>Tue, 03 Jan 2023 15:53:43 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://okzhp.github.io/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-2/</guid>
+    <description><![CDATA[这是Hugo搭建博客的第二期，第一期请参考：Hugo搭建博客（上） - Okzhp 1.Hugo(LoveIt)美化 本站对主题的改造体现在以下几个方面： 鼠]]></description>
+</item>
+<item>
+    <title>Hugo搭建博客（上）</title>
+    <link>https://okzhp.github.io/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-1/</link>
+    <pubDate>Mon, 02 Jan 2023 18:05:44 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://okzhp.github.io/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-1/</guid>
+    <description><![CDATA[这是Hugo搭建博客的第一期，第二期请参考：Hugo搭建博客（下） - Okzhp 1.前言 ​ 很早之前就想要搭建一个博客，奈何伊始眼界太窄，不知以何种方式]]></description>
+</item>
+</channel>
+</rss>

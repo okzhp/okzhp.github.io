@@ -15,13 +15,13 @@
 4. 副标题引用一言api
 
 > 注意，本文所述js文件都放在static/js文件夹下。
->
+> 
 > hugo静态文件一般放在static或者assets文件夹下，但是favicon.png在assets文件夹下无法打包至public，因此我把所有静态文件都放在static文件夹下了。
 
 ### 1.鼠标点击爆炸和输入框爆炸
 
 > 效果：点击页面即可看到效果，文末评论框也可看到效果。
->
+> 
 > 出处：点击特效未找到出处，输入特效是我在github中发现的一个项目[传送门](https://github.com/disjukr/activate-power-mode).
 
 1. 将[click-boom.js](https://image.okzhp.xyz/js/click-boom.js)、[input-boom.js](https://image.okzhp.xyz/js/input-boom.js)下载至js文件夹。
@@ -29,7 +29,7 @@
 2. 将`themes/LoveIt/layouts/partials/assets.html`复制到`layouts/partials/assets.html`（根目录下的文件优先级高于主题内的文件，在外部改动将不影响后续主题版本更新）
 
 3. 编辑assets.html，在末尾引入以上两个js
-
+   
    ```html
    <!-- 点击爆炸特效 -->
    <script type="text/javascript" src="/js/click-boom.js"></script>
@@ -41,7 +41,6 @@
    document.body.addEventListener('input', POWERMODE);
    </script>
    ```
-
 
 至此，两个特效已经实现了。但是评论系统在开发环境默认是关闭的，LoveIt集成了好几种评论系统，以valine为例，在配置文件中搜索valine，把其下的enable = false改为true，然后在执行`hugo server -e production`即可看到评论系统。此时评论系统还只是半成品，需要设置其服务端才可以正常使用。这个后文再讲。
 
@@ -55,7 +54,7 @@
 
 1. 在assets.html引入js处添加以下：
 
-``` html
+```html
  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <!-- 运行时间 -->
 <script type="text/javascript" src="/js/cal-runtime.js"></script>
@@ -103,13 +102,13 @@ setInterval(siteTime, 1000);
         {{ if .Site.Params.busuanzi.enable -}}
         <div class="busuanzi-footer">
             {{ if .Site.Params.busuanzi.sitePV -}}
-            
+
             <span id="busuanzi_container_site_pv">
                 <i class="far fa-eye"></i>
                 <span id="busuanzi_value_site_pv"></span>次
             </span>
             {{- end -}}
-            &nbsp;|&nbsp;
+             | 
             {{ if .Site.Params.busuanzi.siteUV -}}
             <span id="busuanzi_container_site_uv">
                 <i class="fas fa-users"></i>
@@ -202,12 +201,12 @@ git config --global user.email "email@example.com"
 ```
 
 > git网络不太稳定，很有可能push失败，最好使用翻墙网络。
->
+> 
 > 在cmd中设置http和https代理方法：
->
+> 
 > set http_proxy=http://127.0.0.1:端口号
 > set https_proxy=http://127.0.0.1:端口号
->
+> 
 > 通常clash http端口号为7890
 
 ```shell
@@ -258,9 +257,9 @@ git push origin master
 github.io的ip地址为： 
 
 1. 185.199.108.153 
-2.  185.199.109.153
-3.  185.199.110.153
-4.  185.199.111.153
+2. 185.199.109.153
+3. 185.199.110.153
+4. 185.199.111.153
 
 在DNS解析处添加以下两条配置：
 
@@ -333,6 +332,4 @@ DNS解析通常要几分钟才能生效，随后在github page页面配置该域
 - [Github Pages + Hugo 搭建个人博客 - 渣渣的夏天 (zz2summer.github.io)](https://zz2summer.github.io/github-pages-hugo-搭建个人博客/)
 
 - [Hugo系列(3.1) - LoveIt主题美化与博客功能增强 · 第二章 - Yulin Lewis' Blog (lewky.cn)](https://lewky.cn/posts/hugo-3.1.html/)
-
-  
 

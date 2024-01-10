@@ -5,7 +5,7 @@
 
 ## 1.前言
 
-​	很早之前就想要搭建一个博客，奈何伊始眼界太窄，不知以何种方式搭建博客。当时还在github上搜一些博客项目，譬如nbBlog、halo等。也听说过github搭建博客，但却不了解它到底是个什么形态。由于种种信息差，我很长时间内一直以为需要买一台服务器然后才能搭建自己的博客，最终也就搁置了。
+​    很早之前就想要搭建一个博客，奈何伊始眼界太窄，不知以何种方式搭建博客。当时还在github上搜一些博客项目，譬如nbBlog、halo等。也听说过github搭建博客，但却不了解它到底是个什么形态。由于种种信息差，我很长时间内一直以为需要买一台服务器然后才能搭建自己的博客，最终也就搁置了。
 
 后来了解到hugo，花了几天时间研究，没少折腾，最终也算有了博客的雏形。谨以此文作为自己的第一篇博客，记录一下博客搭建的过程。
 
@@ -68,22 +68,19 @@ Hugo有两个版本，这是[官网安装Hugo](https://gohugo.io/installation/)�
 1. 直接下载编译好的exe文件。[下载地址](https://github.com/gohugoio/hugo/releases)
 
 2. 通过包管理器安装（一行命令即可，但需要首先安装对应包管理器）。
-
    ![](https://image.okzhp.xyz/img/20230102193810.png)
 
 3. 通过Go安装构建。
-
    ![](https://image.okzhp.xyz/img/20230102193854.png)
-
    简单来说，需要先安装git以及1.18版本以上的go并设置好环境变量。然后执行下面两条命令：
-
-   ``` shell
+   
+   ```shell
    #通过go安装Hugo
    go install -tags extended github.com/gohugoio/hugo@latest
    #查看Hugo版本，注意是extended版本
    hugo version
    ```
-
+   
    
 
 ## 4.Hugo快速上手
@@ -331,7 +328,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
     url = "https://github.com/okzhp"
     title = "GitHub"
 
-  
+
 
 [params]
   # 网站默认主题样式 ["auto", "light", "dark"]
@@ -368,7 +365,7 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
       post = ""
       #  是否为标题显示打字机动画
       typeit = false
-  
+
 
   [params.busuanzi]         # count web traffic by busuanzi                             # 是否使用不蒜子统计站点访问量
     enable = true
@@ -676,14 +673,14 @@ ignoreErrors = ["error-remote-getjson", "error-missing-instagram-accesstoken"]
         appKey = "krDHzbea1rh6NJEQuNCwg60u"
         placeholder = "说点什么吧..."
         # avatar 头像
-        # 空字符串''		Gravatar官方图形
-        # mp		神秘人(一个灰白头像)
-        # identicon		抽象几何图形
-        # monsterid		小怪物
-        # wavatar		用不同面孔和背景组合生成的头像
-        # retro		八位像素复古头像
-        # robohash		一种具有不同颜色、面部等的机器人
-        # hide	 	不显示头像
+        # 空字符串''        Gravatar官方图形
+        # mp        神秘人(一个灰白头像)
+        # identicon        抽象几何图形
+        # monsterid        小怪物
+        # wavatar        用不同面孔和背景组合生成的头像
+        # retro        八位像素复古头像
+        # robohash        一种具有不同颜色、面部等的机器人
+        # hide         不显示头像
         avatar = "retro"
         meta= ['nick','mail']
         pageSize = 10
@@ -961,3 +958,4 @@ tags: [""]
 
 
 至此，就完成了博客初步的搭建，如果有什么疑问欢迎留言交流😉
+
