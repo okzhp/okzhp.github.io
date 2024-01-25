@@ -4,9 +4,17 @@
         <link>https://okzhp.github.io/</link>
         <description>这是我的全新 Hugo 网站</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1241683615@qq.com (Caspian)</managingEditor>
-            <webMaster>1241683615@qq.com (Caspian)</webMaster><lastBuildDate>Tue, 09 Jan 2024 21:22:20 &#43;0800</lastBuildDate>
+            <webMaster>1241683615@qq.com (Caspian)</webMaster><lastBuildDate>Thu, 25 Jan 2024 23:12:11 &#43;0800</lastBuildDate>
             <atom:link href="https://okzhp.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Leetcode 字符串</title>
+    <link>https://okzhp.github.io/leetcode-%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+    <pubDate>Thu, 25 Jan 2024 23:12:11 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://okzhp.github.io/leetcode-%E5%AD%97%E7%AC%A6%E4%B8%B2/</guid>
+    <description><![CDATA[LeetCode75-面试必考精华版-字符串部分 1、1768. 交替合并字符串 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 class Solution { public String mergeAlternately(String word1, String word2) { /]]></description>
+</item>
+<item>
     <title>Redis主从搭建_哨兵搭建</title>
     <link>https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/</link>
     <pubDate>Tue, 09 Jan 2024 21:22:20 &#43;0800</pubDate>
@@ -20,7 +28,7 @@
     <pubDate>Sun, 31 Dec 2023 12:37:52 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://okzhp.github.io/%E6%88%91%E7%9A%842023/</guid>
-    <description><![CDATA[1. 兴许是失业带来的焦虑，迟迟难以下笔，又或者是2023过于平淡，一时想不到写些什么。算了，随便写点东西，也算是对2023有个纪念。 最近我好像]]></description>
+    <description><![CDATA[1.前言 兴许是失业带来的焦虑，迟迟难以下笔，又或者是2023过于平淡，一时想不到写些什么。算了，随便写点东西，也算是对2023有个纪念。 最近]]></description>
 </item>
 <item>
     <title>最近三两事</title>
@@ -77,14 +85,6 @@
     <author>作者</author>
     <guid>https://okzhp.github.io/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-2/</guid>
     <description><![CDATA[这是Hugo搭建博客的第二期，第一期请参考：Hugo搭建博客（上） - Okzhp 1.Hugo(LoveIt)美化 本站对主题的改造体现在以下几个方面： 鼠]]></description>
-</item>
-<item>
-    <title>Hugo搭建博客（上）</title>
-    <link>https://okzhp.github.io/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-1/</link>
-    <pubDate>Mon, 02 Jan 2023 18:05:44 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://okzhp.github.io/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-1/</guid>
-    <description><![CDATA[这是Hugo搭建博客的第一期，第二期请参考：Hugo搭建博客（下） - Okzhp 1.前言 ​ 很早之前就想要搭建一个博客，奈何伊始眼界太窄，不知以何种方式]]></description>
 </item>
 </channel>
 </rss>
