@@ -16,7 +16,7 @@
 <meta name="twitter:title" content="Leetcode 字符串"/>
 <meta name="twitter:description" content="LeetCode75-面试必考精华版-字符串部分 1、1768. 交替合并字符串 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 class Solution { public String mergeAlternately(String word1, String word2) { /"/>
 <meta name="application-name" content="我的网站">
-<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://okzhp.github.io/leetcode-%E5%AD%97%E7%AC%A6%E4%B8%B2/" /><link rel="prev" href="https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://okzhp.github.io/leetcode-%E5%AD%97%E7%AC%A6%E4%B8%B2/" /><link rel="prev" href="https://okzhp.github.io/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/" /><link rel="next" href="https://okzhp.github.io/leetcode-%E5%8F%8C%E6%8C%87%E9%92%88/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/animate/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -715,7 +715,8 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/" class="prev" rel="prev" title="Redis主从搭建_哨兵搭建"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Redis主从搭建_哨兵搭建</a></div>
+    <div class="post-nav"><a href="/redis%E4%B8%BB%E4%BB%8E%E6%90%AD%E5%BB%BA_%E5%93%A8%E5%85%B5%E6%90%AD%E5%BB%BA/" class="prev" rel="prev" title="Redis主从搭建_哨兵搭建"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Redis主从搭建_哨兵搭建</a>
+            <a href="/leetcode-%E5%8F%8C%E6%8C%87%E9%92%88/" class="next" rel="next" title="Leetcode 双指针">Leetcode 双指针<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
@@ -766,23 +767,32 @@ document.body.addEventListener('input', POWERMODE);
 <script type="text/javascript">
 
     
-    let url = "https://v1.hitokoto.cn/?c=a&c=b&c=k&c=j&c=i&c=c&encode=text"
-    oneWord();
-    function oneWord() {
-        let req = new XMLHttpRequest();
-        req.open("GET", url);
-        req.responseType = "text"
-        req.send();
-        req.onload = function() {
-            let text = "一个人在他停止学习的时候就已经死了";
-            if (req.status === 200) { 
-                text = req.responseText;
-            }
-            new TypeIt("#id-1", {
-                strings: text,
-            }).go();
-        };
-    }
+    
+    fetch('https://v1.hitokoto.cn/?c=a&c=b&c=k&c=j&c=i&c=c&encode=text')
+        .then(response => response.json())
+        .then(data => {
+          const hitokoto = document.querySelector('#hitokoto_text')
+          hitokoto.href = `https:
+          hitokoto.innerText = data.hitokoto
+        })
+        .catch(console.error)
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 </script></body>
 </html>

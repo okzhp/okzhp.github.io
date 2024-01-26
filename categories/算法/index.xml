@@ -4,7 +4,23 @@
         <link>https://okzhp.github.io/categories/%E7%AE%97%E6%B3%95/</link>
         <description>算法 - 分类 - Okzhp</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1241683615@qq.com (Caspian)</managingEditor>
-            <webMaster>1241683615@qq.com (Caspian)</webMaster><lastBuildDate>Thu, 25 Jan 2024 23:12:11 &#43;0800</lastBuildDate><atom:link href="https://okzhp.github.io/categories/%E7%AE%97%E6%B3%95/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>1241683615@qq.com (Caspian)</webMaster><lastBuildDate>Fri, 26 Jan 2024 23:16:18 &#43;0800</lastBuildDate><atom:link href="https://okzhp.github.io/categories/%E7%AE%97%E6%B3%95/" rel="self" type="application/rss+xml" /><item>
+    <title>Leetcode 滑动窗口</title>
+    <link>https://okzhp.github.io/leetcode-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</link>
+    <pubDate>Fri, 26 Jan 2024 23:16:18 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://okzhp.github.io/leetcode-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</guid>
+    <description><![CDATA[LeetCode75-面试必考精华版 1、643. 子数组最大平均数 I 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 class Solution { public double findMaxAverage(int[] nums, int k) { int max,tmp = 0; //先计算窗口k]]></description>
+</item>
+<item>
+    <title>Leetcode 双指针</title>
+    <link>https://okzhp.github.io/leetcode-%E5%8F%8C%E6%8C%87%E9%92%88/</link>
+    <pubDate>Fri, 26 Jan 2024 23:16:11 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://okzhp.github.io/leetcode-%E5%8F%8C%E6%8C%87%E9%92%88/</guid>
+    <description><![CDATA[LeetCode75-面试必考精华版 1、283. 移动零 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 class Solution { public void moveZeroes(int[] nums) { int len = nums.length; //i指针用于遍历非0数字，j]]></description>
+</item>
+<item>
     <title>Leetcode 字符串</title>
     <link>https://okzhp.github.io/leetcode-%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
     <pubDate>Thu, 25 Jan 2024 23:12:11 &#43;0800</pubDate>

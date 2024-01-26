@@ -79,6 +79,12 @@
         <div id="search-dropdown-mobile"></div>
     </div><main class="main">
                 <div class="container"><div class="page archive"><h2 class="single-title animate__animated animate__pulse animate__faster"><i class="fas fa-tag fa-fw" aria-hidden="true"></i>&nbsp;算法</h2><h3 class="group-title">2024</h3><article class="archive-item">
+                        <a href="/leetcode-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" class="archive-item-link">Leetcode 滑动窗口</a>
+                        <span class="archive-item-date">01-26</span>
+                    </article><article class="archive-item">
+                        <a href="/leetcode-%E5%8F%8C%E6%8C%87%E9%92%88/" class="archive-item-link">Leetcode 双指针</a>
+                        <span class="archive-item-date">01-26</span>
+                    </article><article class="archive-item">
                         <a href="/leetcode-%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="archive-item-link">Leetcode 字符串</a>
                         <span class="archive-item-date">01-25</span>
                     </article></div></div>
@@ -128,23 +134,32 @@ document.body.addEventListener('input', POWERMODE);
 <script type="text/javascript">
 
     
-    let url = "https://v1.hitokoto.cn/?c=a&c=b&c=k&c=j&c=i&c=c&encode=text"
-    oneWord();
-    function oneWord() {
-        let req = new XMLHttpRequest();
-        req.open("GET", url);
-        req.responseType = "text"
-        req.send();
-        req.onload = function() {
-            let text = "一个人在他停止学习的时候就已经死了";
-            if (req.status === 200) { 
-                text = req.responseText;
-            }
-            new TypeIt("#id-1", {
-                strings: text,
-            }).go();
-        };
-    }
+    
+    fetch('https://v1.hitokoto.cn/?c=a&c=b&c=k&c=j&c=i&c=c&encode=text')
+        .then(response => response.json())
+        .then(data => {
+          const hitokoto = document.querySelector('#hitokoto_text')
+          hitokoto.href = `https:
+          hitokoto.innerText = data.hitokoto
+        })
+        .catch(console.error)
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 </script></body>
 </html>

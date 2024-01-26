@@ -4,9 +4,25 @@
         <link>https://okzhp.github.io/</link>
         <description>这是我的全新 Hugo 网站</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1241683615@qq.com (Caspian)</managingEditor>
-            <webMaster>1241683615@qq.com (Caspian)</webMaster><lastBuildDate>Thu, 25 Jan 2024 23:12:11 &#43;0800</lastBuildDate>
+            <webMaster>1241683615@qq.com (Caspian)</webMaster><lastBuildDate>Fri, 26 Jan 2024 23:16:18 &#43;0800</lastBuildDate>
             <atom:link href="https://okzhp.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Leetcode 滑动窗口</title>
+    <link>https://okzhp.github.io/leetcode-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</link>
+    <pubDate>Fri, 26 Jan 2024 23:16:18 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://okzhp.github.io/leetcode-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</guid>
+    <description><![CDATA[LeetCode75-面试必考精华版 1、643. 子数组最大平均数 I 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 class Solution { public double findMaxAverage(int[] nums, int k) { int max,tmp = 0; //先计算窗口k]]></description>
+</item>
+<item>
+    <title>Leetcode 双指针</title>
+    <link>https://okzhp.github.io/leetcode-%E5%8F%8C%E6%8C%87%E9%92%88/</link>
+    <pubDate>Fri, 26 Jan 2024 23:16:11 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://okzhp.github.io/leetcode-%E5%8F%8C%E6%8C%87%E9%92%88/</guid>
+    <description><![CDATA[LeetCode75-面试必考精华版 1、283. 移动零 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 class Solution { public void moveZeroes(int[] nums) { int len = nums.length; //i指针用于遍历非0数字，j]]></description>
+</item>
+<item>
     <title>Leetcode 字符串</title>
     <link>https://okzhp.github.io/leetcode-%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
     <pubDate>Thu, 25 Jan 2024 23:12:11 &#43;0800</pubDate>
@@ -69,22 +85,6 @@
     <author>作者</author>
     <guid>https://okzhp.github.io/git%E5%BF%AB%E8%AE%B0/</guid>
     <description><![CDATA[Git快记 参考链接：创建与合并分支 - 廖雪峰的官方网站 (liaoxuefeng.com) 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 将本地仓库和远程仓库相关]]></description>
-</item>
-<item>
-    <title>Java核心概要</title>
-    <link>https://okzhp.github.io/java%E6%A0%B8%E5%BF%83%E6%A6%82%E8%A6%81/</link>
-    <pubDate>Fri, 24 Feb 2023 15:03:07 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://okzhp.github.io/java%E6%A0%B8%E5%BF%83%E6%A6%82%E8%A6%81/</guid>
-    <description><![CDATA[1、Java基础 1.1 JDK/JRE/JVM jdk是开发Java程序必备的，jdk包括jre，除此外还包括javac编译工具、java doc等工具。 jre包括jvm]]></description>
-</item>
-<item>
-    <title>Hugo搭建博客（下）</title>
-    <link>https://okzhp.github.io/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-2/</link>
-    <pubDate>Tue, 03 Jan 2023 15:53:43 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://okzhp.github.io/hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2-2/</guid>
-    <description><![CDATA[这是Hugo搭建博客的第二期，第一期请参考：Hugo搭建博客（上） - Okzhp 1.Hugo(LoveIt)美化 本站对主题的改造体现在以下几个方面： 鼠]]></description>
 </item>
 </channel>
 </rss>
