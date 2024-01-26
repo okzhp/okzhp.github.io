@@ -128,32 +128,23 @@ document.body.addEventListener('input', POWERMODE);
 <script type="text/javascript">
 
     
-    
-    fetch('https://v1.hitokoto.cn/?c=a&c=b&c=k&c=j&c=i&c=c&encode=text')
-        .then(response => response.json())
-        .then(data => {
-          const hitokoto = document.querySelector('#hitokoto_text')
-          hitokoto.href = `https:
-          hitokoto.innerText = data.hitokoto
-        })
-        .catch(console.error)
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    let url = "https://v1.hitokoto.cn/?c=a&c=b&c=k&c=j&c=i&c=c&encode=text"
+    oneWord();
+    function oneWord() {
+        let req = new XMLHttpRequest();
+        req.open("GET", url);
+        req.responseType = "text"
+        req.send();
+        req.onload = function() {
+            let text = "一个人在他停止学习的时候就已经死了";
+            if (req.status === 200) { 
+                text = req.responseText;
+            }
+            new TypeIt("#id-1", {
+                strings: text,
+            }).go();
+        };
+    }
 
 </script></body>
 </html>
