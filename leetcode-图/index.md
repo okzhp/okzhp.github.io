@@ -3,7 +3,9 @@
 
 # [LeetCode75-面试必考精华版](https://leetcode.cn/studyplan/leetcode-75/)
 
-## 1、[841. 钥匙和房间](https://leetcode.cn/problems/keys-and-rooms/)
+## 图-DFS
+
+### 1、[841. 钥匙和房间](https://leetcode.cn/problems/keys-and-rooms/)
 
 ![](https://image.okzhp.xyz/img/20240201111516.png)
 
@@ -73,7 +75,7 @@ DFS，
     }
 ```
 
-## 2、[547. 省份数量](https://leetcode.cn/problems/number-of-provinces/)
+### 2、[547. 省份数量](https://leetcode.cn/problems/number-of-provinces/)
 
 ![](https://image.okzhp.xyz/img/20240201163251.png)
 
@@ -136,9 +138,9 @@ class Solution {
 
 
 
-# 图-BFS
+## 图-BFS
 
-## 1、[1926. 迷宫中离入口最近的出口](https://leetcode.cn/problems/nearest-exit-from-entrance-in-maze/)
+### 1、[1926. 迷宫中离入口最近的出口](https://leetcode.cn/problems/nearest-exit-from-entrance-in-maze/)
 
 ![](https://image.okzhp.xyz/img/20240201204028.png)
 
@@ -176,7 +178,7 @@ class Solution {
 }
 ```
 
-## 2、[994. 腐烂的橘子](https://leetcode.cn/problems/rotting-oranges/)
+### 2、[994. 腐烂的橘子](https://leetcode.cn/problems/rotting-oranges/)
 
 ![](https://image.okzhp.xyz/img/20240201211955.png)
 

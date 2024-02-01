@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>Leetcode 图 - Okzhp</title><meta name="Description" content="这是我的全新 Hugo 网站"><meta property="og:title" content="Leetcode 图" />
-<meta property="og:description" content="LeetCode75-面试必考精华版 1、841. 钥匙和房间 BFS，queue中存储钥匙，初始要将第一个房间标为已访问 1 2 3 4 5 6 7 8 9 10 11 12" />
+<meta property="og:description" content="LeetCode75-面试必考精华版 图-DFS 1、841. 钥匙和房间 BFS，queue中存储钥匙，初始要将第一个房间标为已访问 1 2 3 4 5 6 7" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://okzhp.github.io/leetcode-%E5%9B%BE/" /><meta property="og:image" content="https://okzhp.github.io/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2024-02-01T21:29:45+08:00" />
@@ -14,7 +14,7 @@
 <meta name="twitter:image" content="https://okzhp.github.io/logo.png"/>
 
 <meta name="twitter:title" content="Leetcode 图"/>
-<meta name="twitter:description" content="LeetCode75-面试必考精华版 1、841. 钥匙和房间 BFS，queue中存储钥匙，初始要将第一个房间标为已访问 1 2 3 4 5 6 7 8 9 10 11 12"/>
+<meta name="twitter:description" content="LeetCode75-面试必考精华版 图-DFS 1、841. 钥匙和房间 BFS，queue中存储钥匙，初始要将第一个房间标为已访问 1 2 3 4 5 6 7"/>
 <meta name="application-name" content="我的网站">
 <meta name="apple-mobile-web-app-title" content="我的网站"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://okzhp.github.io/leetcode-%E5%9B%BE/" /><link rel="prev" href="https://okzhp.github.io/leetcode-%E4%BA%8C%E5%8F%89%E6%A0%91/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="/lib/fontawesome-free/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"></noscript><link rel="preload" href="/lib/animate/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -27,7 +27,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/okzhp.github.io\/leetcode-%E5%9B%BE\/"
-        },"genre": "posts","keywords": "图, DFS, BFS","wordcount":  970 ,
+        },"genre": "posts","keywords": "图, DFS, BFS","wordcount":  975 ,
         "url": "https:\/\/okzhp.github.io\/leetcode-%E5%9B%BE\/","datePublished": "2024-02-01T21:29:45+08:00","dateModified": "2024-02-01T21:29:45+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -101,7 +101,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Leetcode 图</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Caspian</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E7%AE%97%E6%B3%95/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>算法</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-02-01">2024-02-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 970 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2024-02-01">2024-02-01</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 975 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/leetcode-%E5%9B%BE/" class="leancloud_visitors" data-flag-title="Leetcode 图">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;
@@ -115,17 +115,23 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#1841-钥匙和房间httpsleetcodecnproblemskeys-and-rooms">1、<a href="https://leetcode.cn/problems/keys-and-rooms/">841. 钥匙和房间</a></a></li>
-    <li><a href="#2547-省份数量httpsleetcodecnproblemsnumber-of-provinces">2、<a href="https://leetcode.cn/problems/number-of-provinces/">547. 省份数量</a></a></li>
-  </ul>
-
-  <ul>
-    <li><a href="#11926-迷宫中离入口最近的出口httpsleetcodecnproblemsnearest-exit-from-entrance-in-maze">1、<a href="https://leetcode.cn/problems/nearest-exit-from-entrance-in-maze/">1926. 迷宫中离入口最近的出口</a></a></li>
-    <li><a href="#2994-腐烂的橘子httpsleetcodecnproblemsrotting-oranges">2、<a href="https://leetcode.cn/problems/rotting-oranges/">994. 腐烂的橘子</a></a></li>
+    <li><a href="#图-dfs">图-DFS</a>
+      <ul>
+        <li><a href="#1841-钥匙和房间httpsleetcodecnproblemskeys-and-rooms">1、<a href="https://leetcode.cn/problems/keys-and-rooms/">841. 钥匙和房间</a></a></li>
+        <li><a href="#2547-省份数量httpsleetcodecnproblemsnumber-of-provinces">2、<a href="https://leetcode.cn/problems/number-of-provinces/">547. 省份数量</a></a></li>
+      </ul>
+    </li>
+    <li><a href="#图-bfs">图-BFS</a>
+      <ul>
+        <li><a href="#11926-迷宫中离入口最近的出口httpsleetcodecnproblemsnearest-exit-from-entrance-in-maze">1、<a href="https://leetcode.cn/problems/nearest-exit-from-entrance-in-maze/">1926. 迷宫中离入口最近的出口</a></a></li>
+        <li><a href="#2994-腐烂的橘子httpsleetcodecnproblemsrotting-oranges">2、<a href="https://leetcode.cn/problems/rotting-oranges/">994. 腐烂的橘子</a></a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="leetcode75-面试必考精华版httpsleetcodecnstudyplanleetcode-75"><a href="https://leetcode.cn/studyplan/leetcode-75/" target="_blank" rel="noopener noreffer ">LeetCode75-面试必考精华版</a></h1>
-<h2 id="1841-钥匙和房间httpsleetcodecnproblemskeys-and-rooms">1、<a href="https://leetcode.cn/problems/keys-and-rooms/" target="_blank" rel="noopener noreffer ">841. 钥匙和房间</a></h2>
+<h2 id="图-dfs">图-DFS</h2>
+<h3 id="1841-钥匙和房间httpsleetcodecnproblemskeys-and-rooms">1、<a href="https://leetcode.cn/problems/keys-and-rooms/" target="_blank" rel="noopener noreffer ">841. 钥匙和房间</a></h3>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -257,7 +263,7 @@
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="2547-省份数量httpsleetcodecnproblemsnumber-of-provinces">2、<a href="https://leetcode.cn/problems/number-of-provinces/" target="_blank" rel="noopener noreffer ">547. 省份数量</a></h2>
+</div><h3 id="2547-省份数量httpsleetcodecnproblemsnumber-of-provinces">2、<a href="https://leetcode.cn/problems/number-of-provinces/" target="_blank" rel="noopener noreffer ">547. 省份数量</a></h3>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -374,8 +380,8 @@
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h1 id="图-bfs">图-BFS</h1>
-<h2 id="11926-迷宫中离入口最近的出口httpsleetcodecnproblemsnearest-exit-from-entrance-in-maze">1、<a href="https://leetcode.cn/problems/nearest-exit-from-entrance-in-maze/" target="_blank" rel="noopener noreffer ">1926. 迷宫中离入口最近的出口</a></h2>
+</div><h2 id="图-bfs">图-BFS</h2>
+<h3 id="11926-迷宫中离入口最近的出口httpsleetcodecnproblemsnearest-exit-from-entrance-in-maze">1、<a href="https://leetcode.cn/problems/nearest-exit-from-entrance-in-maze/" target="_blank" rel="noopener noreffer ">1926. 迷宫中离入口最近的出口</a></h3>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -452,7 +458,7 @@
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="2994-腐烂的橘子httpsleetcodecnproblemsrotting-oranges">2、<a href="https://leetcode.cn/problems/rotting-oranges/" target="_blank" rel="noopener noreffer ">994. 腐烂的橘子</a></h2>
+</div><h3 id="2994-腐烂的橘子httpsleetcodecnproblemsrotting-oranges">2、<a href="https://leetcode.cn/problems/rotting-oranges/" target="_blank" rel="noopener noreffer ">994. 腐烂的橘子</a></h3>
 <p><img
         class="lazyload"
         src="/svg/loading.min.svg"

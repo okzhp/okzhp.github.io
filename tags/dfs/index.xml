@@ -10,7 +10,7 @@
     <pubDate>Thu, 01 Feb 2024 21:29:45 &#43;0800</pubDate>
     <author>作者</author>
     <guid>https://okzhp.github.io/leetcode-%E5%9B%BE/</guid>
-    <description><![CDATA[LeetCode75-面试必考精华版 1、841. 钥匙和房间 BFS，queue中存储钥匙，初始要将第一个房间标为已访问 1 2 3 4 5 6 7 8 9 10 11 12]]></description>
+    <description><![CDATA[LeetCode75-面试必考精华版 图-DFS 1、841. 钥匙和房间 BFS，queue中存储钥匙，初始要将第一个房间标为已访问 1 2 3 4 5 6 7]]></description>
 </item>
 <item>
     <title>Leetcode 二叉树</title>
