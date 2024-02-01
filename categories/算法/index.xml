@@ -4,7 +4,39 @@
         <link>https://okzhp.github.io/categories/%E7%AE%97%E6%B3%95/</link>
         <description>算法 - 分类 - Okzhp</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1241683615@qq.com (Caspian)</managingEditor>
-            <webMaster>1241683615@qq.com (Caspian)</webMaster><lastBuildDate>Fri, 26 Jan 2024 23:16:18 &#43;0800</lastBuildDate><atom:link href="https://okzhp.github.io/categories/%E7%AE%97%E6%B3%95/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>1241683615@qq.com (Caspian)</webMaster><lastBuildDate>Thu, 01 Feb 2024 21:29:45 &#43;0800</lastBuildDate><atom:link href="https://okzhp.github.io/categories/%E7%AE%97%E6%B3%95/" rel="self" type="application/rss+xml" /><item>
+    <title>Leetcode 图</title>
+    <link>https://okzhp.github.io/leetcode-%E5%9B%BE/</link>
+    <pubDate>Thu, 01 Feb 2024 21:29:45 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://okzhp.github.io/leetcode-%E5%9B%BE/</guid>
+    <description><![CDATA[LeetCode75-面试必考精华版 1、841. 钥匙和房间 BFS，queue中存储钥匙，初始要将第一个房间标为已访问 1 2 3 4 5 6 7 8 9 10 11 12]]></description>
+</item>
+<item>
+    <title>Leetcode 二叉树</title>
+    <link>https://okzhp.github.io/leetcode-%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+    <pubDate>Thu, 01 Feb 2024 21:28:54 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://okzhp.github.io/leetcode-%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+    <description><![CDATA[LeetCode75-面试必考精华版 深度优先搜索DFS 1、104. 二叉树的最大深度 深度优先搜索： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22]]></description>
+</item>
+<item>
+    <title>Leetcode 栈和队列和链表</title>
+    <link>https://okzhp.github.io/leetcode-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97%E5%92%8C%E9%93%BE%E8%A1%A8/</link>
+    <pubDate>Thu, 01 Feb 2024 21:28:43 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://okzhp.github.io/leetcode-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97%E5%92%8C%E9%93%BE%E8%A1%A8/</guid>
+    <description><![CDATA[# LeetCode75-面试必考精华版 栈 1、2390. 从字符串中移除星号 1 2 3 4 5 6 7 8 9 10 11 12 13 14 class Solution { //遍历字符串，不是星号就入栈，是]]></description>
+</item>
+<item>
+    <title>Leetcode 哈希表和哈希集合</title>
+    <link>https://okzhp.github.io/leetcode-%E5%93%88%E5%B8%8C%E8%A1%A8%E5%92%8C%E5%93%88%E5%B8%8C%E9%9B%86%E5%90%88/</link>
+    <pubDate>Thu, 01 Feb 2024 21:25:32 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://okzhp.github.io/leetcode-%E5%93%88%E5%B8%8C%E8%A1%A8%E5%92%8C%E5%93%88%E5%B8%8C%E9%9B%86%E5%90%88/</guid>
+    <description><![CDATA[LeetCode75-面试必考精华版 1、2215. 找出两数组的不同 1 2 3 4 5 6 7 8 9 10 11 12 13 14 class Solution { public List&lt;List&lt;Integer&gt;&gt; findDifference(int[] nums1, int[] nums2) { Set&lt;Integer&gt; set1 = Arrays.stream(nums1).boxed().collect(Collectors.toSet()); Set&lt;Integer&gt; set2 = Arrays.stream(nums2).boxed().collect(Collectors.toSet()); for(int n : nums1){ if(set2.contains(n))set2.remove(n);]]></description>
+</item>
+<item>
     <title>Leetcode 滑动窗口</title>
     <link>https://okzhp.github.io/leetcode-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</link>
     <pubDate>Fri, 26 Jan 2024 23:16:18 &#43;0800</pubDate>

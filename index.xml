@@ -4,9 +4,41 @@
         <link>https://okzhp.github.io/</link>
         <description>这是我的全新 Hugo 网站</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>1241683615@qq.com (Caspian)</managingEditor>
-            <webMaster>1241683615@qq.com (Caspian)</webMaster><lastBuildDate>Fri, 26 Jan 2024 23:16:18 &#43;0800</lastBuildDate>
+            <webMaster>1241683615@qq.com (Caspian)</webMaster><lastBuildDate>Thu, 01 Feb 2024 21:29:45 &#43;0800</lastBuildDate>
             <atom:link href="https://okzhp.github.io/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Leetcode 图</title>
+    <link>https://okzhp.github.io/leetcode-%E5%9B%BE/</link>
+    <pubDate>Thu, 01 Feb 2024 21:29:45 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://okzhp.github.io/leetcode-%E5%9B%BE/</guid>
+    <description><![CDATA[LeetCode75-面试必考精华版 1、841. 钥匙和房间 BFS，queue中存储钥匙，初始要将第一个房间标为已访问 1 2 3 4 5 6 7 8 9 10 11 12]]></description>
+</item>
+<item>
+    <title>Leetcode 二叉树</title>
+    <link>https://okzhp.github.io/leetcode-%E4%BA%8C%E5%8F%89%E6%A0%91/</link>
+    <pubDate>Thu, 01 Feb 2024 21:28:54 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://okzhp.github.io/leetcode-%E4%BA%8C%E5%8F%89%E6%A0%91/</guid>
+    <description><![CDATA[LeetCode75-面试必考精华版 深度优先搜索DFS 1、104. 二叉树的最大深度 深度优先搜索： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22]]></description>
+</item>
+<item>
+    <title>Leetcode 栈和队列和链表</title>
+    <link>https://okzhp.github.io/leetcode-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97%E5%92%8C%E9%93%BE%E8%A1%A8/</link>
+    <pubDate>Thu, 01 Feb 2024 21:28:43 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://okzhp.github.io/leetcode-%E6%A0%88%E5%92%8C%E9%98%9F%E5%88%97%E5%92%8C%E9%93%BE%E8%A1%A8/</guid>
+    <description><![CDATA[# LeetCode75-面试必考精华版 栈 1、2390. 从字符串中移除星号 1 2 3 4 5 6 7 8 9 10 11 12 13 14 class Solution { //遍历字符串，不是星号就入栈，是]]></description>
+</item>
+<item>
+    <title>Leetcode 哈希表和哈希集合</title>
+    <link>https://okzhp.github.io/leetcode-%E5%93%88%E5%B8%8C%E8%A1%A8%E5%92%8C%E5%93%88%E5%B8%8C%E9%9B%86%E5%90%88/</link>
+    <pubDate>Thu, 01 Feb 2024 21:25:32 &#43;0800</pubDate>
+    <author>作者</author>
+    <guid>https://okzhp.github.io/leetcode-%E5%93%88%E5%B8%8C%E8%A1%A8%E5%92%8C%E5%93%88%E5%B8%8C%E9%9B%86%E5%90%88/</guid>
+    <description><![CDATA[LeetCode75-面试必考精华版 1、2215. 找出两数组的不同 1 2 3 4 5 6 7 8 9 10 11 12 13 14 class Solution { public List&lt;List&lt;Integer&gt;&gt; findDifference(int[] nums1, int[] nums2) { Set&lt;Integer&gt; set1 = Arrays.stream(nums1).boxed().collect(Collectors.toSet()); Set&lt;Integer&gt; set2 = Arrays.stream(nums2).boxed().collect(Collectors.toSet()); for(int n : nums1){ if(set2.contains(n))set2.remove(n);]]></description>
+</item>
+<item>
     <title>Leetcode 滑动窗口</title>
     <link>https://okzhp.github.io/leetcode-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/</link>
     <pubDate>Fri, 26 Jan 2024 23:16:18 &#43;0800</pubDate>
@@ -53,38 +85,6 @@
     <author>作者</author>
     <guid>https://okzhp.github.io/%E6%9C%80%E8%BF%91%E4%B8%89%E4%B8%A4%E4%BA%8B/</guid>
     <description><![CDATA[2023/07/10 正如程序开发过程中，如果不出意外的话，又要出意外了。 之前下决心保持博客和gzh的更新频率，除了下决心时是真的想要坚持，等三分钟热度过去，早]]></description>
-</item>
-<item>
-    <title>Spring&amp;SpringBoot面试</title>
-    <link>https://okzhp.github.io/springspringboot%E9%9D%A2%E8%AF%95/</link>
-    <pubDate>Tue, 28 Feb 2023 23:00:16 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://okzhp.github.io/springspringboot%E9%9D%A2%E8%AF%95/</guid>
-    <description><![CDATA[1.Spring Spring是一个开源的轻量级Java开发框架。Spring本身是一款优秀的框架，同时可以无缝集成别的开源框架。Spring的的核心在于I]]></description>
-</item>
-<item>
-    <title>网络&amp;操作系统核心要点</title>
-    <link>https://okzhp.github.io/%E7%BD%91%E7%BB%9C%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A0%B8%E5%BF%83%E8%A6%81%E7%82%B9/</link>
-    <pubDate>Tue, 28 Feb 2023 20:14:57 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://okzhp.github.io/%E7%BD%91%E7%BB%9C%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%A0%B8%E5%BF%83%E8%A6%81%E7%82%B9/</guid>
-    <description><![CDATA[1.计算机网络 1.1OSI七层模型&amp;TCP/IP四层模型 七层模型： 四层模型： 四层模型是对七层模型的精简，也是计算机网络真正采用的模型]]></description>
-</item>
-<item>
-    <title>MySQL核心概要</title>
-    <link>https://okzhp.github.io/mysql%E6%A0%B8%E5%BF%83%E6%A6%82%E8%A6%81/</link>
-    <pubDate>Mon, 27 Feb 2023 17:05:44 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://okzhp.github.io/mysql%E6%A0%B8%E5%BF%83%E6%A6%82%E8%A6%81/</guid>
-    <description><![CDATA[1.关系型数据库 1.1E-R图 Entity-Relationship图，实体关系图。在设计数据库时通常要画出E-R图来表明实体之间的关系，实]]></description>
-</item>
-<item>
-    <title>Git快记</title>
-    <link>https://okzhp.github.io/git%E5%BF%AB%E8%AE%B0/</link>
-    <pubDate>Sat, 25 Feb 2023 01:06:13 &#43;0800</pubDate>
-    <author>作者</author>
-    <guid>https://okzhp.github.io/git%E5%BF%AB%E8%AE%B0/</guid>
-    <description><![CDATA[Git快记 参考链接：创建与合并分支 - 廖雪峰的官方网站 (liaoxuefeng.com) 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 将本地仓库和远程仓库相关]]></description>
 </item>
 </channel>
 </rss>
